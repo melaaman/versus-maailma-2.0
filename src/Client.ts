@@ -3,8 +3,8 @@ import { Essay } from "./components/Essay";
 import { ShortText } from "./components/ShortText";
 
 const client = createClient({
-    space: "",
-    accessToken: "",
+    space: process.env.REACT_APP_CONTENTFUL_SPACE || "",
+    accessToken: process.env.REACT_APP_CONTENTFUL_SPACE_ACCESS_TOKEN || "",
 });
 
 export const getContent = (contentType: string) =>
