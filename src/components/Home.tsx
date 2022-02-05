@@ -12,7 +12,6 @@ import Links from "../assets/linkkeja.png";
 const linkItems = [
     {
         id: "about",
-        subheader: "alaotsikko",
         image: About,
         content:
             "Lizards are a widespread group of squamate reptiles, with over 6,000" +
@@ -20,7 +19,6 @@ const linkItems = [
     },
     {
         id: "journal",
-        subheader: "8.1.2021",
         image: Journal,
         content:
             "Lizards are a widespread group of squamate reptiles, with over 6,000" +
@@ -28,7 +26,6 @@ const linkItems = [
     },
     {
         id: "shortTexts",
-        subheader: "Alaotsikko",
         image: Shortly,
         content:
             "Lizards are a widespread group of squamate reptiles, with over 6,000" +
@@ -36,7 +33,6 @@ const linkItems = [
     },
     {
         id: "essays",
-        subheader: "Alaotsikko",
         image: Essays,
         content:
             "Lizards are a widespread group of squamate reptiles, with over 6,000" +
@@ -44,7 +40,6 @@ const linkItems = [
     },
     {
         id: "links",
-        subheader: "Alaotsikko",
         image: Links,
         content:
             "Lizards are a widespread group of squamate reptiles, with over 6,000" +
