@@ -9,7 +9,7 @@ import { Essay } from "./Essay";
 
 const styles: StylesDictionary = {
     container: {
-        marginTop: "2em",
+        marginTop: "4em",
         background: `url(${Writer})`,
         backgroundRepeat: "no-repeat",
         backgroundPositionX: "center",

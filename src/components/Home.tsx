@@ -47,23 +47,24 @@ const linkItems = [
     },
 ];
 
+const styles = {
+    linkItem: {
+        display: "flex",
+        justifyContent: "center",
+        marginTop: "2em",
+    },
+    link: {
+        textDecoration: "none",
+    },
+};
+
 const Home = () => (
     <div>
         <AppContainer className="Home">
             <Grid container spacing={1} columns={12}>
                 {linkItems.map((item, index) => (
-                    <Grid
-                        key={index}
-                        item
-                        xs={12}
-                        md={6}
-                        sx={{
-                            display: "flex",
-                            justifyContent: "center",
-                            marginTop: "2em",
-                        }}
-                    >
-                        <Link to={item.id} style={{ textDecoration: "none" }}>
+                    <Grid key={index} item xs={12} md={6} sx={styles.linkItem}>
+                        <Link to={item.id} style={styles.link}>
                             <LinkCard {...item} />
                         </Link>
                     </Grid>

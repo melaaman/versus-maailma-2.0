@@ -7,7 +7,6 @@ import {
 } from "@mui/material";
 
 interface LinkCardProps {
-    subheader: string;
     image: string;
     content: string;
 }
@@ -29,16 +28,6 @@ const LinkCard = (props: LinkCardProps) => (
                 sx={{}}
             />
             <CardContent>
-                <Typography
-                    gutterBottom
-                    variant="overline"
-                    component="div"
-                    sx={{
-                        fontSize: "larger",
-                    }}
-                >
-                    {props.subheader}
-                </Typography>
                 <Typography variant="body1">{props.content}</Typography>
             </CardContent>
         </CardActionArea>

@@ -21,7 +21,7 @@ const grey = "#f2f2f2";
 
 const styles: StylesDictionary = {
     container: {
-        marginTop: "2em",
+        marginTop: "4em",
         display: "flex",
         justifyContent: "center",
     },

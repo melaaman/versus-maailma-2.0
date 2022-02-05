@@ -30,7 +30,7 @@ const styles: StylesDictionary = {
         justifyContent: "center",
         flexWrap: "wrap",
         gap: "1em",
-        margin: "1.5em 32px",
+        margin: "4em 32px 1.5em 32px",
     },
     searchText: {
         maxWidth: "500px",

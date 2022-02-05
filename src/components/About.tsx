@@ -7,11 +7,38 @@ import FeministBooks from "../assets/feminist_books.jpg";
 import KukuKone from "../assets/kuku_kone.jpeg";
 import Sky from "../assets/sky.png";
 import { ReactComponent as AboutIcon } from "../assets/noun-about.svg";
+import { StylesDictionary } from "../styles";
 
 interface About {
     header: string;
     description: string;
 }
+
+const styles: StylesDictionary = {
+    container: {
+        display: "flex",
+        justifyContent: "space-around",
+        paddingTop: "4em",
+        flexWrap: "wrap",
+    },
+    description: {
+        maxWidth: "25em",
+        paddingTop: "1em",
+    },
+    imageList: {
+        width: 500,
+        height: 450,
+        padding: "1em",
+        border: "1px solid #f5426f",
+    },
+    icon: {
+        backgroundColor: "#f5426f",
+        height: "80%",
+        width: "80%",
+        padding: "1em",
+        paddingRight: "1.2em",
+    },
+};
 
 const AboutComponent = () => {
     const initialState: About = { header: "", description: "" };
@@ -27,42 +54,24 @@ const AboutComponent = () => {
     return (
         <AppContainer className="About">
             <AppHeader header={aboutPage.header} />
-            <div
-                style={{
-                    display: "flex",
-                    justifyContent: "space-around",
-                    paddingTop: "1em",
-                    flexWrap: "wrap",
-                }}
-            >
-                <div style={{ maxWidth: "25em", paddingTop: "1em" }}>
-                    {aboutPage.description}
-                </div>
+            <div style={styles.container}>
+                <div style={styles.description}>{aboutPage.description}</div>
                 <ImageList
                     variant="woven"
-                    sx={{
-                        width: 500,
-                        height: 450,
-                        padding: "1em",
-                        border: "1px solid #f5426f",
-                    }}
+                    sx={styles.imageList}
                     cols={2}
                     gap={8}
                     rowHeight={164}
                 >
                     <ImageListItem>
-                        <img src={FeministBooks} alt="Kuku" loading="lazy" />
+                        <img
+                            src={FeministBooks}
+                            alt="feminism"
+                            loading="lazy"
+                        />
                     </ImageListItem>
                     <ImageListItem>
-                        <AboutIcon
-                            style={{
-                                backgroundColor: "#f5426f",
-                                height: "80%",
-                                width: "80%",
-                                padding: "1em",
-                                paddingRight: "1.2em",
-                            }}
-                        />
+                        <AboutIcon style={styles.icon} />
                     </ImageListItem>
                     <ImageListItem>
                         <img src={Sky} alt="sky" loading="lazy" />

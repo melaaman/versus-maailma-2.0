@@ -18,7 +18,7 @@ export const initialLinksState: Link = {
 
 const styles: StylesDictionary = {
     container: {
-        padding: "2em 1em",
+        padding: "4em 1em",
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "center",
