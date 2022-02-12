@@ -4,6 +4,7 @@ import {
     CardMedia,
     CardContent,
     Typography,
+    useMediaQuery,
 } from "@mui/material";
 
 interface LinkCardProps {
@@ -11,26 +12,30 @@ interface LinkCardProps {
     content: string;
 }
 
-const LinkCard = (props: LinkCardProps) => (
-    <Card
-        sx={{
-            maxWidth: 500,
-            backgroundColor: "white",
-            color: "black",
-        }}
-    >
+const LinkCard = (props: LinkCardProps) => {
+    const matches = useMediaQuery("(max-width:480px)");
+    return (
         <CardActionArea>
-            <CardMedia
-                component="img"
-                height="250"
-                image={props.image}
-                alt="kuku"
-            />
-            <CardContent>
-                <Typography variant="body1">{props.content}</Typography>
-            </CardContent>
+            <Card
+                sx={{
+                    width: matches ? 300 : 500,
+                    height: 350,
+                    backgroundColor: "white",
+                    color: "black",
+                }}
+            >
+                <CardMedia
+                    component="img"
+                    height="250"
+                    image={props.image}
+                    alt="kuku"
+                />
+                <CardContent>
+                    <Typography variant="body1">{props.content}</Typography>
+                </CardContent>
+            </Card>
         </CardActionArea>
-    </Card>
-);
+    );
+};
 
 export default LinkCard;
