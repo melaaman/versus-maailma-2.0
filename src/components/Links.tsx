@@ -1,8 +1,10 @@
 import { orderBy } from "lodash";
 import AppContainer from "./AppContainer";
 import AppHeader from "./AppHeader";
+import SpacerComponent from "./SpacerComponent";
 import SpiderWeb from "../assets/spider-web.png";
 import { StylesDictionary } from "../styles";
+import "./Links.css";
 
 export interface Link {
     link: string;
@@ -16,61 +18,28 @@ export const initialLinksState: Link = {
     orderId: -1,
 };
 
-const styles: StylesDictionary = {
-    container: {
-        padding: "4em 1em",
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        gap: "2em",
-    },
-    image: {
-        width: "50%",
-        maxWidth: "400px",
-    },
-    list: {
-        width: "100%",
-        maxWidth: "500px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "1em",
-        marginLeft: "auto",
-    },
-    link: {
-        textDecoration: "none",
-        color: "black",
-        fontSize: "larger",
-    },
-    linkContainer: {
-        width: "100%",
-        overflow: "hidden",
-        textOverflow: "ellipsis",
-        whiteSpace: "pre-line",
-    },
-    description: {
-        textIndent: "1em",
-        textTransform: "uppercase",
-    },
-};
-
 const Links = ({ links }: { links: Link[] }) => {
     return (
         <AppContainer className="Links">
             <AppHeader header="Linkkejä" />
-            <div style={styles.container}>
+            <SpacerComponent />
+            <div className="Links-container">
                 <img
+                    className="image"
                     src={SpiderWeb}
                     alt={"spiderweb"}
                     loading="lazy"
-                    style={styles.image}
                 />
-                <div style={styles.list}>
+                <div className="Links-list">
                     {orderBy(links, "orderId").map((link) => (
-                        <div key={link.orderId} style={styles.linkContainer}>
-                            <a href={link.link} style={styles.link}>
+                        <div
+                            className="Links-link-container"
+                            key={link.orderId}
+                        >
+                            <a className="Links-link" href={link.link}>
                                 {link.link}
                             </a>
-                            <div style={styles.description}>
+                            <div className="Links-description">
                                 {link.description}
                             </div>
                         </div>

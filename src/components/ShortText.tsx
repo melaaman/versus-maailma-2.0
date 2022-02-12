@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
 import { useParams } from "react-router-dom";
-import { StylesDictionary } from "../styles";
 import AppContainer from "./AppContainer";
 import AppHeader from "./AppHeader";
 import TextBox, { getFormattedText } from "./TextBox";
+import "./ShortText.css";
 
 export interface ShortText {
     id: number;
@@ -35,10 +35,7 @@ export interface ShortTextProps {
     shortTexts: ShortText[];
 }
 
-const styles = {
-    date: {
-        margin: "1em 0",
-    },
+const sx = {
     content: {
         display: "flex",
         justifyContent: "space-evenly",
@@ -49,9 +46,6 @@ const styles = {
         alignSelf: "center",
         border: "1px solid rgba(54, 57, 69, 0.14)",
         borderRadius: "4px",
-    },
-    image: {
-        width: "10%",
     },
 };
 
@@ -69,12 +63,14 @@ const ShortTextComponent = (props: ShortTextProps) => {
                     <TextBox>
                         <>
                             {getFormattedText(currentText.description)}
-                            <div style={styles.date}>{currentText.date}</div>
-                            <Box sx={styles.content}>
+                            <div className="ShortTextContainer-date">
+                                {currentText.date}
+                            </div>
+                            <Box sx={sx.content}>
                                 <img
+                                    className="ShortTextContainer-image"
                                     src={currentText.image?.fields?.file.url}
                                     alt="icon"
-                                    style={styles.image}
                                 />
                                 <div>
                                     {`${currentText.author}: ${currentText.work}`}

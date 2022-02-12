@@ -1,0 +1,18 @@
+.About-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.About-description {
+    max-width: 25em;
+    padding-top: 1em;
+}
+
+.About-icon {
+    background-color: #f5426f;
+    height: 80%;
+    width: 80%;
+    padding: 1em;
+    padding-right: 1.2em;
+}

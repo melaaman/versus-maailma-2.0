@@ -1,0 +1,37 @@
+.Links-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5em;
+}
+
+.Links-list {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.Links-link-container {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-line;
+}
+
+.Links-link {
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+}
+
+.Links-description {
+    text-indent: 1em;
+    text-transform: uppercase;
+}
+
+.image {
+    width: 50%;
+    max-width: 400px;
+}

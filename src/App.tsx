@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import styled from "styled-components";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "@fontsource/open-sans";
 
@@ -19,10 +18,7 @@ import Home from "./components/Home";
 import Links, { initialLinksState } from "./components/Links";
 import NavBar from "./components/NavBar";
 
-const StyledApp = styled.div`
-    height: 100%;
-    background: whitesmoke;
-`;
+import "./App.css";
 
 export const primary = "#363945";
 export const secondary = "#D2386C";
@@ -122,7 +118,7 @@ function App() {
     });
 
     return (
-        <StyledApp className="App">
+        <div className="AppComponent">
             <ThemeProvider theme={darkTheme}>
                 <Router>
                     <NavBar />
@@ -166,7 +162,7 @@ function App() {
                     </Routes>
                 </Router>
             </ThemeProvider>
-        </StyledApp>
+        </div>
     );
 }
 

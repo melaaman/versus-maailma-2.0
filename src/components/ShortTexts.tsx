@@ -2,7 +2,6 @@ import { useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import {
     Box,
-    Avatar,
     TextField,
     FormControl,
     InputLabel,
@@ -16,21 +15,16 @@ import {
 } from "@mui/material";
 import { orderBy, isEmpty } from "lodash";
 import AppContainer from "./AppContainer";
+import SpacerComponent from "./SpacerComponent";
 import AppHeader from "./AppHeader";
 import Blood from "../assets/blood.png";
 import { StylesDictionary } from "../styles";
 import { ShortTextProps } from "./ShortText";
+import "./ShortTexts.css";
 
-const styles: StylesDictionary = {
+const sx: StylesDictionary = {
     tooltip: {
         fontSize: "14px",
-    },
-    searchBox: {
-        display: "flex",
-        justifyContent: "center",
-        flexWrap: "wrap",
-        gap: "1em",
-        margin: "4em 32px 1.5em 32px",
     },
     searchText: {
         maxWidth: "500px",
@@ -44,11 +38,19 @@ const styles: StylesDictionary = {
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "space-evenly",
-        marginTop: "2em",
-        gap: "2em",
+        marginTop: "3em",
     },
     button: {
         width: "100%",
+    },
+    list: {
+        backgroundColor: "transparent",
+        width: "70%",
+        minWidth: "300px",
+        height: "500px",
+        overflow: "scroll",
+        borderRadius: "4px",
+        padding: 0,
     },
     listItem: {
         gap: "1em",
@@ -80,14 +82,15 @@ const ShortTexts = (props: ShortTextProps) => {
     return (
         <AppContainer className="ShortTexts">
             <AppHeader header="Lyhyesti" />
-            <div className="search-banner" style={styles.searchBox}>
+            <SpacerComponent />
+            <div className="ShortTexts-search-banner">
                 <TextField
                     label="Hae tekijä tai teos"
                     color="primary"
                     onChange={handleSearch}
-                    sx={styles.searchText}
+                    sx={sx.searchText}
                 />
-                <FormControl sx={styles.selectBox}>
+                <FormControl sx={sx.selectBox}>
                     <InputLabel id="select-label">Genre</InputLabel>
                     <Select
                         labelId="select-label"
@@ -105,23 +108,16 @@ const ShortTexts = (props: ShortTextProps) => {
                     </Select>
                 </FormControl>
             </div>
-            <Box sx={styles.resultBox}>
-                <List
-                    sx={{
-                        bgcolor: "whitesmoke",
-                        width: "70%",
-                        minWidth: "300px",
-                        height: "350px",
-                        overflow: "scroll",
-                        border: "1px solid rgba(54, 57, 69, 0.14)",
-                        borderRadius: "4px",
-                        padding: 0,
-                        background: `url(${Blood})`,
-                        backgroundRepeat: "no-repeat",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                    }}
-                >
+            <Box
+                sx={{
+                    ...sx.resultBox,
+                    background: `url(${Blood})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                }}
+            >
+                <List sx={sx.list}>
                     {!isEmpty(filteredItems) &&
                         filteredItems.map((text) => (
                             <Button
@@ -129,14 +125,17 @@ const ShortTexts = (props: ShortTextProps) => {
                                     navigate(`/shortTexts/${text.id}`)
                                 }
                                 key={text.id}
-                                sx={styles.button}
+                                sx={sx.button}
                             >
-                                <ListItem key={text.id} sx={styles.listItem}>
+                                <ListItem key={text.id} sx={sx.listItem}>
                                     {text.image && (
-                                        <img src={text.image.fields.file.url} />
+                                        <img
+                                            src={text.image.fields.file.url}
+                                            alt={text.work}
+                                        />
                                     )}
                                     <ListItemText
-                                        sx={styles.itemText}
+                                        sx={sx.itemText}
                                         primary={text.header}
                                         secondary={
                                             <Fragment>

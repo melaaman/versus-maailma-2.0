@@ -3,6 +3,7 @@ import { StylesDictionary } from "../styles";
 import AppContainer from "./AppContainer";
 import AppHeader from "./AppHeader";
 import { getFormattedText } from "./TextBox";
+import "./JournalEntry.css";
 
 export interface Entry {
     date: string;
@@ -19,26 +20,6 @@ interface JournalProps {
     journalEntries: Entry[];
 }
 
-const styles: StylesDictionary = {
-    content: {
-        display: "flex",
-        padding: "4%",
-        justifyContent: "space-between",
-    },
-    description: {
-        display: "flex",
-        flexDirection: "column",
-        width: "100%",
-        maxWidth: "700px",
-    },
-    image: {
-        width: "35%",
-        height: "100%",
-        marginTop: "1em",
-        maxWidth: "250px",
-    },
-};
-
 const JournalEntry = (props: JournalProps) => {
     const params = useParams();
     const currentEntry = props.journalEntries.find(
@@ -50,15 +31,15 @@ const JournalEntry = (props: JournalProps) => {
             {currentEntry && (
                 <>
                     <AppHeader header={currentEntry.date} isSubheader />
-                    <div style={styles.content}>
-                        <span style={styles.description}>
+                    <div className="JournalEntryComponent-content">
+                        <span className="JournalEntryComponent-description">
                             {getFormattedText(currentEntry.description)}
                         </span>
                         {currentEntry.image && (
                             <img
+                                className="JournalEntryComponent-image"
                                 src={currentEntry.image.fields.file.url}
                                 alt={currentEntry.date}
-                                style={styles.image}
                             />
                         )}
                     </div>

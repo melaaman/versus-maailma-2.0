@@ -12,29 +12,23 @@ import AppHeader from "./AppHeader";
 import Philosophy from "../assets/filosofia.jpg";
 import { getFormattedText } from "./TextBox";
 import { StylesDictionary } from "../styles";
+import "./Journal.css";
 
 interface JournalProps {
     journalEntries: Entry[];
 }
 
-const grey = "#f2f2f2";
-
-const styles: StylesDictionary = {
+const sx: StylesDictionary = {
     container: {
         marginTop: "4em",
         display: "flex",
         justifyContent: "center",
     },
     paper: {
-        backgroundColor: grey,
+        backgroundColor: "whitesmoke",
         borderRadius: 0,
         boxShadow: "none",
         maxHeight: "320px",
-    },
-    date: {
-        color: "primary",
-        padding: 8,
-        fontWeight: "bolder",
     },
     entryContent: {
         display: "flex",
@@ -47,18 +41,7 @@ const styles: StylesDictionary = {
         overflow: "hidden",
         textOverflow: "ellipsis",
         height: "75%",
-    },
-    entryDescription: {
-        height: "100%",
-    },
-    fade: {
-        position: "absolute",
-        bottom: "0px",
-        display: "block",
-        width: "100%",
-        height: "50px",
-        backgroundImage:
-            "linear-gradient(to bottom, rgba(242, 242, 242, 0), rgba(242, 242, 242, 0.9) 100%)",
+        padding: 0,
     },
     entryList: {
         alignItems: "start",
@@ -78,8 +61,9 @@ const styles: StylesDictionary = {
         width: 20,
         margin: "0 1em",
     },
-    image: {
-        width: "100%",
+    calendar: {
+        display: "flex",
+        justifyContent: "center",
     },
 };
 
@@ -88,6 +72,7 @@ const getFormattedEntryDate = (date: Date | null) =>
 
 const Journal = (props: JournalProps) => {
     const navigate = useNavigate();
+
     const latestEntry = props.journalEntries[0];
     const isExistingEntry = (date: Date) =>
         props.journalEntries
@@ -112,7 +97,7 @@ const Journal = (props: JournalProps) => {
     return (
         <AppContainer className="Journal">
             <AppHeader header="(Luku)päiväkirja" />
-            <Grid container spacing={2} sx={styles.container}>
+            <Grid container sx={sx.container}>
                 <Grid item xs={12} md={8}>
                     <Box
                         sx={{
@@ -123,23 +108,25 @@ const Journal = (props: JournalProps) => {
                             },
                         }}
                     >
-                        <Paper elevation={2} sx={styles.paper}>
-                            <div style={styles.date}>{latestEntry.date}</div>
+                        <Paper elevation={2} sx={sx.paper}>
+                            <div className="Journal-entry-date">
+                                {latestEntry.date}
+                            </div>
                             <Button
                                 onClick={() =>
                                     navigate(`/journal/${latestEntry.date}`)
                                 }
-                                style={styles.entryContent}
+                                sx={sx.entryContent}
                             >
-                                <div style={styles.entryDescription}>
+                                <div className="Journal-entry-description">
                                     {getFormattedText(latestEntry.description)}
                                 </div>
-                                <div style={styles.fade} />
+                                <div className="fade" />
                             </Button>
                         </Paper>
                     </Box>
                 </Grid>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={4} sx={sx.calendar}>
                     <LocalizationProvider
                         dateAdapter={AdapterDateFns}
                         locale={fiLocale}
@@ -163,9 +150,9 @@ const Journal = (props: JournalProps) => {
                 </Grid>
                 <Grid item xs={12} md={8}>
                     <img
+                        className="Journal-image"
                         src={Philosophy}
                         alt="philosophy"
-                        style={styles.image}
                     />
                 </Grid>
             </Grid>

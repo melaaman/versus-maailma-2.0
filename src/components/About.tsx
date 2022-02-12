@@ -2,41 +2,26 @@ import { useState, useEffect } from "react";
 import { ImageList, ImageListItem } from "@mui/material";
 import { getContent } from "../Client";
 import AppContainer from "./AppContainer";
+import SpacerComponent from "./SpacerComponent";
 import AppHeader from "./AppHeader";
 import FeministBooks from "../assets/feminist_books.jpg";
 import KukuKone from "../assets/kuku_kone.jpeg";
 import Sky from "../assets/sky.png";
 import { ReactComponent as AboutIcon } from "../assets/noun-about.svg";
 import { StylesDictionary } from "../styles";
+import "./About.css";
 
 interface About {
     header: string;
     description: string;
 }
 
-const styles: StylesDictionary = {
-    container: {
-        display: "flex",
-        justifyContent: "space-around",
-        paddingTop: "4em",
-        flexWrap: "wrap",
-    },
-    description: {
-        maxWidth: "25em",
-        paddingTop: "1em",
-    },
+const sx: StylesDictionary = {
     imageList: {
         width: 500,
         height: 450,
         padding: "1em",
         border: "1px solid #f5426f",
-    },
-    icon: {
-        backgroundColor: "#f5426f",
-        height: "80%",
-        width: "80%",
-        padding: "1em",
-        paddingRight: "1.2em",
     },
 };
 
@@ -54,11 +39,12 @@ const AboutComponent = () => {
     return (
         <AppContainer className="About">
             <AppHeader header={aboutPage.header} />
-            <div style={styles.container}>
-                <div style={styles.description}>{aboutPage.description}</div>
+            <SpacerComponent />
+            <div className="About-container">
+                <div className="About-description">{aboutPage.description}</div>
                 <ImageList
                     variant="woven"
-                    sx={styles.imageList}
+                    sx={sx.imageList}
                     cols={2}
                     gap={8}
                     rowHeight={164}
@@ -71,7 +57,7 @@ const AboutComponent = () => {
                         />
                     </ImageListItem>
                     <ImageListItem>
-                        <AboutIcon style={styles.icon} />
+                        <AboutIcon className="About-icon" />
                     </ImageListItem>
                     <ImageListItem>
                         <img src={Sky} alt="sky" loading="lazy" />

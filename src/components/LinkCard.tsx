@@ -25,7 +25,6 @@ const LinkCard = (props: LinkCardProps) => (
                 height="250"
                 image={props.image}
                 alt="kuku"
-                sx={{}}
             />
             <CardContent>
                 <Typography variant="body1">{props.content}</Typography>

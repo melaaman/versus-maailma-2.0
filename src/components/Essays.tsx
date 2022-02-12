@@ -3,30 +3,12 @@ import { Button } from "@mui/material";
 import { orderBy } from "lodash";
 import AppContainer from "./AppContainer";
 import AppHeader from "./AppHeader";
-import Writer from "../assets/writing.png";
+import SpacerComponent from "./SpacerComponent";
 import { StylesDictionary } from "../styles";
 import { Essay } from "./Essay";
+import "./Essays.css";
 
-const styles: StylesDictionary = {
-    container: {
-        marginTop: "4em",
-        background: `url(${Writer})`,
-        backgroundRepeat: "no-repeat",
-        backgroundPositionX: "center",
-        backgroundColor: "rgb(17, 17, 17)",
-        minHeight: "500px",
-        position: "relative",
-    },
-    links: {
-        position: "absolute",
-        display: "flex",
-        flexDirection: "column",
-        width: "100%",
-        height: "100%",
-        justifyContent: "center",
-        gap: "5px",
-        padding: "1em",
-    },
+const sx: StylesDictionary = {
     button: {
         fontSize: "1.5em",
         fontWeight: "bolder",
@@ -41,13 +23,14 @@ const Essays = ({ essays }: { essays: Essay[] }) => {
     return (
         <AppContainer className="Essays">
             <AppHeader header="Esseitä" />
-            <div style={styles.container}>
-                <div style={styles.links}>
+            <SpacerComponent />
+            <div className="Essays-container">
+                <div className="Essays-links" style={sx.links}>
                     {orderBy(essays, "date", "desc").map((essay) => (
                         <Button
                             onClick={() => navigate(`/essays/${essay.id}`)}
                             key={essay.id}
-                            sx={styles.button}
+                            sx={sx.button}
                         >
                             {essay.header}
                         </Button>
