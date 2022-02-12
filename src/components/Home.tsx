@@ -19,29 +19,24 @@ const linkItems = [
         id: "journal",
         image: Journal,
         content:
-            "Lizards are a widespread group of squamate reptiles, with over 6,000" +
-            "species, ranging across all continents except Antarctica",
+            "Jäsentymättömiä ajatuksia meneillään olevista kirjoista tai mistä vain. ",
     },
     {
         id: "shortTexts",
         image: Shortly,
         content:
-            "Lizards are a widespread group of squamate reptiles, with over 6,000" +
-            "species, ranging across all continents except Antarctica",
+            "Lyhyitä tekstejä vaikutuksen tehneistä kirjoista, elokuvista ja tv-sarjoista.",
     },
     {
         id: "essays",
         image: Essays,
         content:
-            "Lizards are a widespread group of squamate reptiles, with over 6,000" +
-            "species, ranging across all continents except Antarctica",
+            "Jäsennellympiä ja työstetympiä ajatuksia. En lupaa olla esseideni kanssa enää samaa mieltä.",
     },
     {
         id: "links",
         image: Links,
-        content:
-            "Lizards are a widespread group of squamate reptiles, with over 6,000" +
-            "species, ranging across all continents except Antarctica",
+        content: "Näitä suosittelen.",
     },
 ];
 
