@@ -106,6 +106,13 @@ function App() {
                     },
                 },
             },
+            MuiOutlinedInput: {
+                styleOverrides: {
+                    root: {
+                        borderRadius: 0,
+                    },
+                },
+            },
             MuiInputLabel: {
                 styleOverrides: {
                     root: {

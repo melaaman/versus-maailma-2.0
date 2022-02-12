@@ -22,6 +22,7 @@ const LinkCard = (props: LinkCardProps) => {
                     height: 350,
                     backgroundColor: "white",
                     color: "black",
+                    borderRadius: 0,
                 }}
             >
                 <CardMedia
