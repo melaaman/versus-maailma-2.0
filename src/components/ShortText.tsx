@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import AppContainer from "./AppContainer";
 import AppHeader from "./AppHeader";
 import TextBox, { getFormattedText } from "./TextBox";
+import BloodDeepRed from "../assets/blood_deep_red.png";
 import "./ShortText.css";
 
 export interface ShortText {
@@ -46,6 +47,10 @@ const sx = {
         alignSelf: "center",
         border: "1px solid rgba(54, 57, 69, 0.14)",
         borderRadius: "4px",
+        background: `url(${BloodDeepRed})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "contain",
+        backgroundPositionX: "lert",
     },
 };
 
