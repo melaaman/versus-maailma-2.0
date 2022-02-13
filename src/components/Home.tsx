@@ -31,12 +31,12 @@ const linkItems = [
         id: "essays",
         image: Essays,
         content:
-            "Jäsennellympiä ja työstetympiä ajatuksia. En lupaa olla esseideni kanssa enää samaa mieltä.",
+            "Jäsennellympiä ja työstetympiä ajatuksia. En lupaa olla esseideni kanssa samaa mieltä.",
     },
     {
         id: "links",
         image: Links,
-        content: "Näitä suosittelen.",
+        content: "Nettisivuja, joilla vierailen usein ja joita suosittelen.",
     },
 ];
 

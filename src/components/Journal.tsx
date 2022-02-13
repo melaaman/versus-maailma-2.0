@@ -44,7 +44,7 @@ const getSx = (matches: boolean): StylesDictionary => ({
         fontSize: "initial",
         lineHeight: 1.4,
         alignItems: "start",
-        textAlign: "start",
+        textAlign: "justify",
         overflow: "hidden",
         textOverflow: "ellipsis",
         height: "75%",
@@ -71,6 +71,7 @@ const getSx = (matches: boolean): StylesDictionary => ({
     calendar: {
         display: "flex",
         justifyContent: "center",
+        paddingLeft: "1em",
     },
 });
 

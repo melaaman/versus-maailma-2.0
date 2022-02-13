@@ -19,7 +19,7 @@ const LinkCard = (props: LinkCardProps) => {
             <Card
                 sx={{
                     width: matches ? 300 : 500,
-                    height: 350,
+                    height: 360,
                     backgroundColor: "white",
                     color: "black",
                     borderRadius: 0,
