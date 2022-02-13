@@ -45,7 +45,7 @@
 }
 
 /* For tablets: */
-@media only screen and (max-width: 768px) {
+@media screen and (max-width: 900px) and (min-width: 600px) {
     .MuiPickerStaticWrapper-root {
         width: 50% !important;
     }

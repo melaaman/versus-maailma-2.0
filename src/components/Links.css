@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5em;
+    gap: 2em;
 }
 
 .Links-list {
@@ -10,6 +10,7 @@
     max-width: 500px;
     display: flex;
     flex-direction: column;
+    text-align: center;
     gap: 1em;
 }
 
@@ -23,7 +24,6 @@
 .Links-link {
     text-decoration: none;
     color: black;
-    font-size: larger;
 }
 
 .Links-description {

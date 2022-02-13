@@ -1,5 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { Grid, Box, Paper, Button, TextField } from "@mui/material";
+import {
+    Grid,
+    Box,
+    Paper,
+    Button,
+    TextField,
+    useMediaQuery,
+} from "@mui/material";
 import moment from "moment";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import StaticDatePicker from "@mui/lab/StaticDatePicker";
@@ -18,9 +25,9 @@ interface JournalProps {
     journalEntries: Entry[];
 }
 
-const sx: StylesDictionary = {
+const getSx = (matches: boolean): StylesDictionary => ({
     container: {
-        marginTop: "4em",
+        marginTop: matches ? "2em" : "4em",
         display: "flex",
         justifyContent: "center",
     },
@@ -34,8 +41,8 @@ const sx: StylesDictionary = {
         display: "flex",
         flexDirection: "column",
         textTransform: "none",
-        lineHeight: 1.4,
         fontSize: "initial",
+        lineHeight: 1.4,
         alignItems: "start",
         textAlign: "start",
         overflow: "hidden",
@@ -65,14 +72,15 @@ const sx: StylesDictionary = {
         display: "flex",
         justifyContent: "center",
     },
-};
+});
 
 const getFormattedEntryDate = (date: Date | null) =>
     date ? moment(date).format("YYYY-MM-DD") : "";
 
 const Journal = (props: JournalProps) => {
     const navigate = useNavigate();
-
+    const matches = useMediaQuery("(max-width:480px)");
+    const sx: StylesDictionary = getSx(matches);
     const latestEntry = props.journalEntries[0];
     const isExistingEntry = (date: Date) =>
         props.journalEntries

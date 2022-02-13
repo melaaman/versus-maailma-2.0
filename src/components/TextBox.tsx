@@ -11,7 +11,6 @@ const TextBox = ({ children }: { children: React.ReactNode }) => (
             display: "flex",
             flexDirection: "column",
             padding: "4%",
-            textAlign: "justify",
         }}
     >
         {children}

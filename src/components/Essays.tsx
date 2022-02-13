@@ -12,7 +12,6 @@ const sx: StylesDictionary = {
     button: {
         fontSize: "1.5em",
         fontWeight: "bolder",
-        fontFamily: "monospace",
         color: "aliceblue",
     },
 };

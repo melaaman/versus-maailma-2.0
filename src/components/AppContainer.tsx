@@ -9,7 +9,12 @@ interface AppContainerProps {
 const AppContainer = (props: AppContainerProps) => (
     <Container
         className={props.className}
-        sx={{ minHeight: "100vh", padding: "3em", fontFamily: "Open Sans" }}
+        sx={{
+            minHeight: "100vh",
+            padding: "3em",
+            fontFamily: "Anonymous Pro",
+            textAlign: "justify",
+        }}
     >
         {props.children}
     </Container>

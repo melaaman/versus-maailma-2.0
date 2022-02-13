@@ -10,6 +10,7 @@ import Sky from "../assets/sky.png";
 import { ReactComponent as AboutIcon } from "../assets/noun-about.svg";
 import { StylesDictionary } from "../styles";
 import "./About.css";
+import { getFormattedText } from "./TextBox";
 
 interface About {
     header: string;
@@ -41,7 +42,9 @@ const AboutComponent = () => {
             <AppHeader header={aboutPage.header} />
             <SpacerComponent />
             <div className="About-container">
-                <div className="About-description">{aboutPage.description}</div>
+                <div className="About-description">
+                    {getFormattedText(aboutPage.description)}
+                </div>
                 <ImageList
                     variant="woven"
                     sx={sx.imageList}

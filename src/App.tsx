@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "@fontsource/open-sans";
+import "@fontsource/anonymous-pro";
 
 import About from "./components/About";
 import ShortTexts from "./components/ShortTexts";
@@ -56,9 +57,16 @@ function App() {
             },
         },
         typography: {
-            fontFamily: "Open Sans",
+            fontFamily: "Anonymous Pro",
         },
         components: {
+            MuiContainer: {
+                styleOverrides: {
+                    root: {
+                        lineHeight: 1.4,
+                    },
+                },
+            },
             MuiList: {
                 styleOverrides: {
                     root: {

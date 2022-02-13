@@ -41,13 +41,12 @@ const pages = [
     },
 ];
 
-const title = "versus_maailma_2.0";
+const title = "VERSUS_MAAILMA_2.0";
 
 const titleStyle = {
     color: "aliceblue",
     textShadow: "1px 1px 1px whitesmoke",
     cursor: "pointer",
-    fontFamily: "monospace",
     fontWeight: 900,
     letterSpacing: "2px",
 };
@@ -129,7 +128,6 @@ const NavBar = () => {
                                 >
                                     <Typography
                                         sx={{
-                                            fontFamily: "monospace",
                                             fontWeight: "bolder",
                                         }}
                                         textAlign="center"
@@ -171,7 +169,6 @@ const NavBar = () => {
                                 sx={{
                                     my: 2,
                                     color: "aliceblue",
-                                    fontFamily: "monospace",
                                     fontSize: 16,
                                     fontWeight: 900,
                                     display: "block",
