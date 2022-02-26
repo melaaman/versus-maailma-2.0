@@ -36,7 +36,7 @@ const linkItems = [
     {
         id: "links",
         image: Links,
-        content: "Nettisivuja, joilla vierailen usein ja joita suosittelen.",
+        content: "Nettisivuja, joilla vierailen usein.",
     },
 ];
 

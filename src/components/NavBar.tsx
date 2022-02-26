@@ -43,12 +43,15 @@ const pages = [
 
 const title = "VERSUS_MAAILMA_2.0";
 
+const headerFont = "monospace";
+
 const titleStyle = {
     color: "aliceblue",
     textShadow: "1px 1px 1px whitesmoke",
     cursor: "pointer",
     fontWeight: 900,
     letterSpacing: "2px",
+    fontFamily: headerFont,
 };
 
 const NavBar = () => {
@@ -172,6 +175,7 @@ const NavBar = () => {
                                     fontSize: 16,
                                     fontWeight: 900,
                                     display: "block",
+                                    fontFamily: headerFont,
                                 }}
                             >
                                 {page.header}
