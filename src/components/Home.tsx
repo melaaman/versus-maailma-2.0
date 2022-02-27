@@ -54,9 +54,14 @@ const styles = {
 const Home = () => (
     <div>
         <AppContainer className="Home">
-            <Grid container spacing={1} columns={12}>
+            <Grid
+                container
+                spacing={1}
+                columns={12}
+                style={{ justifyContent: "center" }}
+            >
                 {linkItems.map((item, index) => (
-                    <Grid key={index} item xs={12} md={6} sx={styles.linkItem}>
+                    <Grid key={index} item md={6} sx={styles.linkItem}>
                         <Link to={item.id} style={styles.link}>
                             <LinkCard {...item} />
                         </Link>

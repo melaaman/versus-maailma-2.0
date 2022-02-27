@@ -13,6 +13,7 @@ export interface ShortText {
     date: string;
     work: string;
     author: string;
+    translator?: string;
     publisher?: string;
     yearOfPublishing: string;
     genre: string;
@@ -26,6 +27,7 @@ export const initialShortTextState: ShortText = {
     date: "",
     work: "",
     author: "",
+    translator: undefined,
     publisher: undefined,
     yearOfPublishing: "",
     genre: "",
@@ -43,7 +45,7 @@ const sx = {
         gap: "1em",
         p: 3,
         width: "100%",
-        maxWidth: "350px",
+        maxWidth: "400px",
         alignSelf: "center",
         border: "1px solid rgba(54, 57, 69, 0.14)",
         borderRadius: "4px",
@@ -80,6 +82,12 @@ const ShortTextComponent = (props: ShortTextProps) => {
                                 <div>
                                     {`${currentText.author}: ${currentText.work}`}
                                     <br />
+                                    {currentText.translator && (
+                                        <>
+                                            {`${currentText.translator} (suom.)`}
+                                            <br />
+                                        </>
+                                    )}
                                     {`${currentText.publisher || ""} (${
                                         currentText.yearOfPublishing
                                     })`}

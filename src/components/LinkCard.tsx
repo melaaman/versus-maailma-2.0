@@ -13,12 +13,17 @@ interface LinkCardProps {
 }
 
 const LinkCard = (props: LinkCardProps) => {
-    const matches = useMediaQuery("(max-width:480px)");
+    const mobileBreakPoint = useMediaQuery("(max-width:480px)");
+    const tabletBreakPoint = useMediaQuery("(max-width:1024px)");
     return (
         <CardActionArea>
             <Card
                 sx={{
-                    width: matches ? 300 : 500,
+                    width: mobileBreakPoint
+                        ? 300
+                        : tabletBreakPoint
+                        ? 400
+                        : 500,
                     height: 360,
                     backgroundColor: "white",
                     color: "black",
