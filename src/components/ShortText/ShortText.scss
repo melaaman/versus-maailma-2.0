@@ -1,0 +1,25 @@
+.ShortTextComponent {
+    &-content {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 1em;
+        padding: 3em;
+        width: 100%;
+        max-width: 400px;
+        align-self: center;
+        border: 1px solid rgba(54 57 69) 14%;
+        border-radius: 4px;
+        background: url(../../assets/blood_deep_red.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position-x: left;
+    }
+
+    &-date {
+        margin: 1em 0;
+    }
+
+    &-image {
+        width: 10%;
+    }
+}

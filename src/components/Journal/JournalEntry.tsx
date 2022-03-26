@@ -1,25 +1,15 @@
 import { useParams } from "react-router-dom";
-import AppContainer from "./AppContainer";
-import AppHeader from "./AppHeader";
-import { FormattedText } from "./TextBox";
-import "./JournalEntry.css";
+import { Entry } from "../../data/journal";
+import AppContainer from "../General/AppContainer";
+import AppHeader from "../General/AppHeader";
+import { FormattedText } from "../General/TextBox";
+import "./JournalEntry.scss";
 
-export interface Entry {
-    date: string;
-    description: string;
-    image?: { fields: { file: { url: string } } };
-}
-export const initialEntryState: Entry = {
-    description: "",
-    date: "",
-    image: undefined,
-};
-
-interface JournalProps {
+interface JournalEntryProps {
     journalEntries: Entry[];
 }
 
-const JournalEntry = (props: JournalProps) => {
+const JournalEntry = (props: JournalEntryProps) => {
     const params = useParams();
     const currentEntry = props.journalEntries.find(
         (entry) => entry.date === params.id
@@ -31,14 +21,14 @@ const JournalEntry = (props: JournalProps) => {
                 <>
                     <AppHeader header={currentEntry.date} isSubheader />
                     <div className="JournalEntryComponent-content">
-                        <span className="JournalEntryComponent-description">
+                        <span className="JournalEntryComponent-content-description">
                             <FormattedText
                                 description={currentEntry.description}
                             />
                         </span>
                         {currentEntry.image && (
                             <img
-                                className="JournalEntryComponent-image"
+                                className="JournalEntryComponent-content-image"
                                 src={currentEntry.image.fields.file.url}
                                 alt={currentEntry.date}
                             />

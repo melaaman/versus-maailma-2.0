@@ -1,5 +1,6 @@
 import { Container } from "@mui/material";
 import React from "react";
+import styles from "./AppContainer.module.scss";
 
 interface AppContainerProps {
     children: React.ReactNode;
@@ -7,15 +8,7 @@ interface AppContainerProps {
 }
 
 const AppContainer = (props: AppContainerProps) => (
-    <Container
-        className={props.className}
-        sx={{
-            minHeight: "100vh",
-            padding: "3em",
-            fontFamily: "Anonymous Pro",
-            textAlign: "justify",
-        }}
-    >
+    <Container className={`${styles.container} ${props.className}`}>
         {props.children}
     </Container>
 );

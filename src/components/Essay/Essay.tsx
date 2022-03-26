@@ -1,23 +1,8 @@
 import { useParams } from "react-router-dom";
-import AppContainer from "./AppContainer";
-import AppHeader from "./AppHeader";
-import TextBox, { FormattedText } from "./TextBox";
-
-export interface Essay {
-    header: string;
-    description: any;
-    date: string;
-    bibliography: string;
-    id: string;
-}
-
-export const initialEssayState = {
-    header: "",
-    description: "",
-    date: "",
-    bibliography: "",
-    id: "",
-};
+import { Essay } from "../../data/essay";
+import AppContainer from "../General/AppContainer";
+import AppHeader from "../General/AppHeader";
+import TextBox, { FormattedText } from "../General/TextBox";
 
 interface EssayComponentProps {
     essays: Essay[];

@@ -1,6 +1,6 @@
 import { createClient } from "contentful";
-import { Essay } from "./components/Essay";
-import { ShortText } from "./components/ShortText";
+import { Essay } from "./data/essay";
+import { ShortText } from "./data/shortText";
 
 const client = createClient({
     space: process.env.REACT_APP_CONTENTFUL_SPACE || "",

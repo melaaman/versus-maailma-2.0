@@ -1,0 +1,21 @@
+.JournalEntryComponent {
+    &-content {
+        display: flex;
+        padding: 4%;
+        justify-content: space-between;
+
+        &-description {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        &-image {
+            width: 35%;
+            height: 100%;
+            margin-top: 1em;
+            max-width: 250px;
+        }
+    }
+}

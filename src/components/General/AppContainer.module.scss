@@ -1,0 +1,8 @@
+.container {
+    &:global(.MuiContainer-root) {
+        min-height: 100vh;
+        padding: 3em;
+        font-family: "Anonymous Pro";
+        text-align: justify;
+    }
+}

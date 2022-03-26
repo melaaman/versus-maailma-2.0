@@ -1,20 +1,11 @@
 import { Button } from "@mui/material";
 import { orderBy } from "lodash";
 import { useNavigate } from "react-router-dom";
-import AppContainer from "./AppContainer";
-import AppHeader from "./AppHeader";
-import { Essay } from "./Essay";
-import SpacerComponent from "./SpacerComponent";
-import { StylesDictionary } from "../styles";
-import "./Essays.css";
-
-const sx: StylesDictionary = {
-    button: {
-        fontSize: "1.5em",
-        fontWeight: "bolder",
-        color: "aliceblue",
-    },
-};
+import { Essay } from "../../data/essay";
+import AppContainer from "../General/AppContainer";
+import AppHeader from "../General/AppHeader";
+import SpacerComponent from "../General/SpacerComponent";
+import "./Essays.scss";
 
 const Essays = ({ essays }: { essays: Essay[] }) => {
     const navigate = useNavigate();
@@ -24,12 +15,12 @@ const Essays = ({ essays }: { essays: Essay[] }) => {
             <AppHeader header="Esseitä" />
             <SpacerComponent />
             <div className="Essays-container">
-                <div className="Essays-links" style={sx.links}>
+                <div className="Essays-container-links">
                     {orderBy(essays, "date", "desc").map((essay) => (
                         <Button
                             onClick={() => navigate(`/essays/${essay.id}`)}
                             key={essay.id}
-                            sx={sx.button}
+                            className="Essays-container-links-link"
                         >
                             {essay.header}
                         </Button>

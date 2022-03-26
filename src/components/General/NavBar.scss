@@ -1,0 +1,51 @@
+$headerFont: monospace;
+
+@mixin title {
+    color: aliceblue;
+    text-shadow: 1px 1px 1px whitesmoke;
+    cursor: pointer;
+    font-weight: 900 !important;
+    letter-spacing: 2px;
+    font-family: $headerFont !important;
+}
+
+.NavBar {
+    &-container {
+        &-largeScreen {
+            &-title {
+                @include title;
+            }
+
+            &-menu {
+                flex-grow: 1;
+                justify-content: end;
+
+                &-pages {
+                    margin: 2px 0 !important;
+                    color: aliceblue !important;
+                    font-size: 16px !important;
+                    font-weight: 900 !important;
+                    display: block !important;
+                    font-family: $headerFont !important;
+                }
+            }
+        }
+
+        &-smallScreen {
+            &-title {
+                @include title;
+            }
+
+            &-menu {
+                flex-grow: 1;
+
+                &-pages {
+                    &-page {
+                        text-align: center;
+                        font-weight: bolder !important;
+                    }
+                }
+            }
+        }
+    }
+}

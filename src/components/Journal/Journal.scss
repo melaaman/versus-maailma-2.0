@@ -1,0 +1,83 @@
+.Journal {
+    &-container {
+        display: flex;
+        justify-content: center;
+
+        &-paper {
+            background-color: whitesmoke !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            max-height: 320px;
+
+            &-entryContent {
+                text-transform: none !important;
+                font-size: initial !important;
+                line-height: 1.4 !important;
+                text-align: justify;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                height: 75%;
+                padding: 0;
+            }
+
+            &-entryDate {
+                color: primary;
+                padding: 8;
+                font-weight: bolder;
+            }
+
+            &-entryDescription {
+                height: 100%;
+            }
+        }
+
+        &-calendar {
+            display: flex;
+            justify-content: center;
+            padding-left: 1em;
+        }
+
+        &-image {
+            width: 100%;
+        }
+    }
+}
+
+.fade {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 50px;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(242, 242, 242, 0),
+        rgba(242, 242, 242, 0.9) 100%
+    );
+}
+
+/* Mui overrides  */
+
+.MuiPickerStaticWrapper-root {
+    height: 90%;
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+.MuiCalendarPicker-root {
+    width: 80% !important;
+}
+
+/* For mobile phones: */
+@media only screen and (max-width: 480px) {
+    .MuiCalendarPicker-root {
+        margin: 0 1em !important;
+    }
+}
+
+/* For tablets: */
+@media screen and (max-width: 900px) and (min-width: 600px) {
+    .MuiPickerStaticWrapper-root {
+        width: 50% !important;
+    }
+}

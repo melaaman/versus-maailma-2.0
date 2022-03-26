@@ -1,13 +1,14 @@
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import AppContainer from "./AppContainer";
-import LinkCard from "./LinkCard";
-import About from "../assets/about.png";
-import Essays from "../assets/essays.png";
-import Journal from "../assets/journal.png";
-import Links from "../assets/linkkeja.png";
-import Shortly from "../assets/shortly.png";
+import About from "../../assets/about.png";
+import Essays from "../../assets/essays.png";
+import Journal from "../../assets/journal.png";
+import Links from "../../assets/linkkeja.png";
+import Shortly from "../../assets/shortly.png";
+import AppContainer from "../General/AppContainer";
+import LinkCard from "../General/LinkCard";
+import "./Home.scss";
 
 const linkItems = [
     {
@@ -40,29 +41,18 @@ const linkItems = [
     },
 ];
 
-const styles = {
-    linkItem: {
-        display: "flex",
-        justifyContent: "center",
-        marginTop: "2em",
-    },
-    link: {
-        textDecoration: "none",
-    },
-};
-
 const Home = () => (
     <div>
         <AppContainer className="Home">
-            <Grid
-                container
-                spacing={1}
-                columns={12}
-                style={{ justifyContent: "center" }}
-            >
+            <Grid container spacing={1} columns={12} className="Home-container">
                 {linkItems.map((item, index) => (
-                    <Grid key={index} item md={6} sx={styles.linkItem}>
-                        <Link to={item.id} style={styles.link}>
+                    <Grid
+                        className="Home-container-list"
+                        key={index}
+                        item
+                        md={6}
+                    >
+                        <Link to={item.id} className="Home-container-list-link">
                             <LinkCard {...item} />
                         </Link>
                     </Grid>

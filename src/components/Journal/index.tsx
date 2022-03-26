@@ -13,67 +13,16 @@ import {
 import fiLocale from "date-fns/locale/fi";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
-import AppContainer from "./AppContainer";
-import AppHeader from "./AppHeader";
-import { Entry } from "./JournalEntry";
-import { FormattedText } from "./TextBox";
-import Philosophy from "../assets/filosofia.jpg";
-import { StylesDictionary } from "../styles";
-import "./Journal.css";
+import Philosophy from "../../assets/filosofia.jpg";
+import { Entry } from "../../data/journal";
+import AppContainer from "../General/AppContainer";
+import AppHeader from "../General/AppHeader";
+import { FormattedText } from "../General/TextBox";
+import "./Journal.scss";
 
 interface JournalProps {
     journalEntries: Entry[];
 }
-
-const getSx = (matches: boolean): StylesDictionary => ({
-    container: {
-        marginTop: matches ? "2em" : "4em",
-        display: "flex",
-        justifyContent: "center",
-    },
-    paper: {
-        backgroundColor: "whitesmoke",
-        borderRadius: 0,
-        boxShadow: "none",
-        maxHeight: "320px",
-    },
-    entryContent: {
-        display: "flex",
-        flexDirection: "column",
-        textTransform: "none",
-        fontSize: "initial",
-        lineHeight: 1.4,
-        alignItems: "start",
-        textAlign: "justify",
-        overflow: "hidden",
-        textOverflow: "ellipsis",
-        height: "75%",
-        padding: 0,
-    },
-    entryList: {
-        alignItems: "start",
-        marginTop: "5px",
-        height: "75%",
-        overflow: "scroll",
-    },
-    linkButton: {
-        display: "flex",
-        alignItems: "center",
-        paddingRight: "25px",
-        fontWeight: "bolder",
-        color: "primary",
-    },
-    icon: {
-        height: 20,
-        width: 20,
-        margin: "0 1em",
-    },
-    calendar: {
-        display: "flex",
-        justifyContent: "center",
-        paddingLeft: "1em",
-    },
-});
 
 const getFormattedEntryDate = (date: Date | null) =>
     date ? moment(date).format("YYYY-MM-DD") : "";
@@ -81,7 +30,6 @@ const getFormattedEntryDate = (date: Date | null) =>
 const Journal = (props: JournalProps) => {
     const navigate = useNavigate();
     const matches = useMediaQuery("(max-width:480px)");
-    const sx: StylesDictionary = getSx(matches);
     const latestEntry = props.journalEntries[0];
     const isExistingEntry = (date: Date) =>
         props.journalEntries
@@ -106,7 +54,11 @@ const Journal = (props: JournalProps) => {
     return (
         <AppContainer className="Journal">
             <AppHeader header="(Luku)päiväkirja" />
-            <Grid container sx={sx.container}>
+            <Grid
+                container
+                className="Journal-container"
+                style={{ marginTop: matches ? "2em" : "4em" }}
+            >
                 <Grid item xs={12} md={8}>
                     <Box
                         sx={{
@@ -117,17 +69,20 @@ const Journal = (props: JournalProps) => {
                             },
                         }}
                     >
-                        <Paper elevation={2} sx={sx.paper}>
-                            <div className="Journal-entry-date">
+                        <Paper
+                            className="Journal-container-paper"
+                            elevation={2}
+                        >
+                            <div className="Journal-container-paper-entryDate">
                                 {latestEntry.date}
                             </div>
                             <Button
+                                className="Journal-container-paper-entryContent"
                                 onClick={() =>
                                     navigate(`/journal/${latestEntry.date}`)
                                 }
-                                sx={sx.entryContent}
                             >
-                                <div className="Journal-entry-description">
+                                <div className="Journal-container-paper-entryDescription">
                                     <FormattedText
                                         description={latestEntry.description}
                                     />
@@ -137,7 +92,12 @@ const Journal = (props: JournalProps) => {
                         </Paper>
                     </Box>
                 </Grid>
-                <Grid item xs={12} md={4} sx={sx.calendar}>
+                <Grid
+                    className="Journal-container-calendar"
+                    item
+                    xs={12}
+                    md={4}
+                >
                     <LocalizationProvider
                         dateAdapter={AdapterDateFns}
                         locale={fiLocale}
@@ -161,7 +121,7 @@ const Journal = (props: JournalProps) => {
                 </Grid>
                 <Grid item xs={12} md={8}>
                     <img
-                        className="Journal-image"
+                        className="Journal-container-image"
                         src={Philosophy}
                         alt="philosophy"
                     />

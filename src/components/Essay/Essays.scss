@@ -1,0 +1,27 @@
+.Essays {
+    &-container {
+        background: url(../../assets/writing.png);
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-color: rgb(17, 17, 17);
+        min-height: 500px;
+        position: relative;
+
+        &-links {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            gap: 5px;
+            padding: 1em;
+
+            &-link {
+                font-size: 1.5em !important;
+                font-weight: bolder !important;
+                color: aliceblue !important;
+            }
+        }
+    }
+}

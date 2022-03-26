@@ -13,6 +13,7 @@ import {
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./NavBar.scss";
 
 const pages = [
     {
@@ -44,17 +45,6 @@ const pages = [
 
 const title = "VERSUS_MAAILMA_2.0";
 
-const headerFont = "monospace";
-
-const titleStyle = {
-    color: "aliceblue",
-    textShadow: "1px 1px 1px whitesmoke",
-    cursor: "pointer",
-    fontWeight: 900,
-    letterSpacing: "2px",
-    fontFamily: headerFont,
-};
-
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState<null | HTMLElement>(null);
     const navigate = useNavigate();
@@ -70,31 +60,33 @@ const NavBar = () => {
         }
     }
 
+    const largeScreen = {
+        xs: "none",
+        md: "flex",
+    };
+
+    const smallScreen = { xs: "flex", md: "none" };
+
     return (
-        <AppBar position="sticky" color="primary">
-            <Container maxWidth="xl">
+        <AppBar className="NavBar" position="sticky" color="primary">
+            <Container className="NavBar-container" maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
+                        className="NavBar-container-largeScreen-title"
                         onClick={() => navigate("/")}
                         variant="h5"
                         noWrap
                         component="div"
                         sx={{
-                            ...titleStyle,
-                            mr: 2,
-                            marginRight: "2em",
-                            display: {
-                                xs: "none",
-                                md: "flex",
-                            },
+                            display: largeScreen,
                         }}
                     >
                         {title}
                     </Typography>
                     <Box
+                        className="NavBar-container-smallScreen-menu"
                         sx={{
-                            flexGrow: 1,
-                            display: { xs: "flex", md: "none" },
+                            display: smallScreen,
                         }}
                     >
                         <IconButton
@@ -127,15 +119,11 @@ const NavBar = () => {
                         >
                             {pages.map((page, index) => (
                                 <MenuItem
+                                    className="NavBar-container-smallScreen-menu-pages"
                                     key={index}
                                     onClick={() => handleCloseNavMenu(page.id)}
                                 >
-                                    <Typography
-                                        sx={{
-                                            fontWeight: "bolder",
-                                        }}
-                                        textAlign="center"
-                                    >
+                                    <Typography className="NavBar-container-smallScreen-menu-pages-page">
                                         {page.header}
                                     </Typography>
                                 </MenuItem>
@@ -143,41 +131,30 @@ const NavBar = () => {
                         </Menu>
                     </Box>
                     <Typography
+                        className="NavBar-container-smallScreen-title"
                         variant="h5"
                         onClick={() => navigate("/")}
                         noWrap
                         component="div"
                         sx={{
-                            ...titleStyle,
-                            flexGrow: 1,
-                            display: {
-                                xs: "flex",
-                                md: "none",
-                            },
+                            display: smallScreen,
                         }}
                     >
                         {title}
                     </Typography>
                     <Box
+                        className="NavBar-container-largeScreen-menu"
                         sx={{
-                            flexGrow: 1,
-                            justifyContent: "end",
-                            display: { xs: "none", md: "flex" },
+                            display: largeScreen,
                         }}
                     >
                         {pages.map((page, index) => (
                             <Button
+                                className="NavBar-container-largeScreen-menu-pages"
                                 key={index}
                                 size="large"
                                 onClick={() => handleCloseNavMenu(page.id)}
-                                sx={{
-                                    my: 2,
-                                    color: "aliceblue",
-                                    fontSize: 16,
-                                    fontWeight: 900,
-                                    display: "block",
-                                    fontFamily: headerFont,
-                                }}
+                                sx={{}}
                             >
                                 {page.header}
                             </Button>

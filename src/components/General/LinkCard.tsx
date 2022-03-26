@@ -6,6 +6,7 @@ import {
     Typography,
     useMediaQuery,
 } from "@mui/material";
+import "./LinkCard.scss";
 
 interface LinkCardProps {
     image: string;
@@ -16,19 +17,16 @@ const LinkCard = (props: LinkCardProps) => {
     const mobileBreakPoint = useMediaQuery("(max-width:480px)");
     const tabletBreakPoint = useMediaQuery("(max-width:1024px)");
     return (
-        <CardActionArea>
+        <CardActionArea className="LinkCard">
             <Card
-                sx={{
+                style={{
                     width: mobileBreakPoint
-                        ? 300
+                        ? "300px"
                         : tabletBreakPoint
-                        ? 400
-                        : 500,
-                    height: 360,
-                    backgroundColor: "white",
-                    color: "black",
-                    borderRadius: 0,
+                        ? "400px"
+                        : "500px",
                 }}
+                className="LinkCard-content"
             >
                 <CardMedia
                     component="img"

@@ -1,4 +1,4 @@
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "@fontsource/open-sans";
@@ -6,23 +6,24 @@ import "@fontsource/anonymous-pro";
 
 import { getContent, getItems } from "./Client";
 import About from "./components/About";
-import { initialEssayState } from "./components/Essay";
-import EssayComponent from "./components/Essay";
-import Essays from "./components/Essays";
+import Essays from "./components/Essay";
+import EssayComponent from "./components/Essay/Essay";
+import NavBar from "./components/General/NavBar";
 import Home from "./components/Home";
 import Journal from "./components/Journal";
-import JournalEntry, { initialEntryState } from "./components/JournalEntry";
-import Links, { initialLinksState } from "./components/Links";
-import NavBar from "./components/NavBar";
-import ShortTextComponent, {
-    initialShortTextState,
-} from "./components/ShortText";
-import ShortTexts from "./components/ShortTexts";
+import JournalEntry from "./components/Journal/JournalEntry";
+import Links from "./components/Links";
+import ShortTextComponent from "./components/ShortText/ShortText";
+import ShortTexts from "./components/ShortText/ShortTexts";
 import { initialAboutState } from "./data/about";
-import "./App.css";
+import { initialEssayState } from "./data/essay";
+import { initialEntryState } from "./data/journal";
+import { initialLinksState } from "./data/link";
+import { initialShortTextState } from "./data/shortText";
+export { rootStyle } from "./styles/rootStyle";
 
-export const primary = "#363945";
-export const secondary = "#D2386C";
+import "./App.css";
+import { rootStyle } from "./styles/rootStyle";
 
 const App = () => {
     const [about, setAbout] = useState(initialAboutState);
@@ -52,94 +53,9 @@ const App = () => {
         });
     }, []);
 
-    const darkTheme = createTheme({
-        palette: {
-            primary: {
-                main: primary,
-            },
-            secondary: {
-                main: secondary,
-            },
-        },
-        typography: {
-            fontFamily: "Anonymous Pro",
-        },
-        components: {
-            MuiContainer: {
-                styleOverrides: {
-                    root: {
-                        lineHeight: 1.4,
-                    },
-                },
-            },
-            MuiList: {
-                styleOverrides: {
-                    root: {
-                        backgroundColor: primary,
-                        color: "aliceblue",
-                    },
-                },
-            },
-            MuiListItemText: {
-                styleOverrides: {
-                    primary: {
-                        fontWeight: 900,
-                    },
-                    secondary: {
-                        fontWeight: 600,
-                    },
-                },
-            },
-            MuiDivider: {
-                styleOverrides: {
-                    root: {
-                        "&::before, &::after": {
-                            borderTop: `thin solid ${secondary}`,
-                        },
-                    },
-                },
-            },
-            MuiTooltip: {
-                styleOverrides: {
-                    tooltip: {
-                        backgroundColor: primary,
-                        fontSize: "14px",
-                        padding: "1em",
-                        paddingRight: 0,
-                    },
-                    arrow: {
-                        color: primary,
-                    },
-                },
-            },
-            MuiInputBase: {
-                styleOverrides: {
-                    root: {
-                        height: "40px",
-                    },
-                },
-            },
-            MuiOutlinedInput: {
-                styleOverrides: {
-                    root: {
-                        borderRadius: 0,
-                    },
-                },
-            },
-            MuiInputLabel: {
-                styleOverrides: {
-                    root: {
-                        bottom: "24px",
-                        top: "unset",
-                    },
-                },
-            },
-        },
-    });
-
     return (
         <div className="AppComponent">
-            <ThemeProvider theme={darkTheme}>
+            <ThemeProvider theme={rootStyle}>
                 <Router>
                     <NavBar />
                     <Routes>

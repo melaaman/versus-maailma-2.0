@@ -1,0 +1,14 @@
+.Home {
+    &-container {
+        justify-content: center;
+        &-list {
+            display: flex !important;
+            justify-content: center;
+            margin-top: 2em !important;
+
+            &-link {
+                text-decoration: none;
+            }
+        }
+    }
+}

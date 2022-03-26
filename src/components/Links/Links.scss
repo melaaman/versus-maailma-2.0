@@ -1,0 +1,40 @@
+.Links {
+    &-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2em;
+
+        &-image {
+            width: 50%;
+            max-width: 400px;
+        }
+
+        &-list {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            gap: 1em;
+
+            &-link {
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: pre-line;
+
+                &-url {
+                    text-decoration: none;
+                    color: black;
+                    font-weight: 900;
+                }
+
+                &-description {
+                    text-indent: 1em;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}

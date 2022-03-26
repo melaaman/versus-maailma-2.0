@@ -15,51 +15,11 @@ import { orderBy, isEmpty } from "lodash";
 import React from "react";
 import { useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-import AppContainer from "./General/AppContainer";
-import AppHeader from "./General/AppHeader";
-import SpacerComponent from "./General/SpacerComponent";
-import { ShortTextProps } from "./ShortText";
-import Blood from "../assets/blood.png";
-import { StylesDictionary } from "../styles";
-import "./ShortTexts.css";
-
-const sx: StylesDictionary = {
-    tooltip: {
-        fontSize: "14px",
-    },
-    searchText: {
-        maxWidth: "500px",
-        width: "100%",
-    },
-    selectBox: {
-        maxWidth: "250px",
-        width: "100%",
-    },
-    resultBox: {
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space-evenly",
-        marginTop: "3em",
-    },
-    button: {
-        width: "100%",
-    },
-    list: {
-        backgroundColor: "transparent",
-        width: "70%",
-        minWidth: "300px",
-        height: "500px",
-        overflow: "scroll",
-        borderRadius: "4px",
-        padding: 0,
-    },
-    listItem: {
-        gap: "1em",
-    },
-    itemText: {
-        color: "rgba(0, 0, 0, 0.6)",
-    },
-};
+import AppContainer from "../General/AppContainer";
+import AppHeader from "../General/AppHeader";
+import SpacerComponent from "../General/SpacerComponent";
+import { ShortTextProps } from "../ShortText/ShortText";
+import "./ShortTexts.scss";
 
 const ShortTexts = (props: ShortTextProps) => {
     const [genre, setGenre] = useState("");
@@ -84,14 +44,14 @@ const ShortTexts = (props: ShortTextProps) => {
         <AppContainer className="ShortTexts">
             <AppHeader header="Lyhyesti" />
             <SpacerComponent />
-            <div className="ShortTexts-search-banner">
+            <div className="ShortTexts-search">
                 <TextField
+                    className="ShortTexts-search-text"
                     label="Hae tekijä tai teos"
                     color="primary"
                     onChange={handleSearch}
-                    sx={sx.searchText}
                 />
-                <FormControl sx={sx.selectBox}>
+                <FormControl className="ShortTexts-search-text-select">
                     <InputLabel id="select-label">Genre</InputLabel>
                     <Select
                         labelId="select-label"
@@ -109,26 +69,21 @@ const ShortTexts = (props: ShortTextProps) => {
                     </Select>
                 </FormControl>
             </div>
-            <Box
-                sx={{
-                    ...sx.resultBox,
-                    background: `url(${Blood})`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}
-            >
-                <List sx={sx.list}>
+            <Box className="ShortTexts-results">
+                <List className="ShortTexts-results-list">
                     {!isEmpty(filteredItems) &&
                         filteredItems.map((text) => (
                             <Button
+                                className="ShortTexts-results-list-button"
                                 onClick={() =>
                                     navigate(`/shortTexts/${text.id}`)
                                 }
                                 key={text.id}
-                                sx={sx.button}
                             >
-                                <ListItem key={text.id} sx={sx.listItem}>
+                                <ListItem
+                                    className="ShortTexts-results-list-item"
+                                    key={text.id}
+                                >
                                     {text.image && (
                                         <img
                                             src={text.image.fields.file.url}
@@ -136,7 +91,7 @@ const ShortTexts = (props: ShortTextProps) => {
                                         />
                                     )}
                                     <ListItemText
-                                        sx={sx.itemText}
+                                        className="ShortTexts-results-list-item-text"
                                         primary={text.header}
                                         secondary={
                                             <Fragment>

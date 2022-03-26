@@ -1,60 +1,14 @@
 import { Box } from "@mui/material";
 import { useParams } from "react-router-dom";
-import AppContainer from "./AppContainer";
-import AppHeader from "./AppHeader";
-import TextBox, { FormattedText } from "./TextBox";
-import BloodDeepRed from "../assets/blood_deep_red.png";
-import "./ShortText.css";
-
-export interface ShortText {
-    id: number;
-    header: string;
-    description: string;
-    date: string;
-    work: string;
-    author: string;
-    translator?: string;
-    publisher?: string;
-    yearOfPublishing: string;
-    genre: string;
-    image?: { fields: { file: { url: string } } };
-}
-
-export const initialShortTextState: ShortText = {
-    id: -1,
-    header: "",
-    description: "",
-    date: "",
-    work: "",
-    author: "",
-    translator: undefined,
-    publisher: undefined,
-    yearOfPublishing: "",
-    genre: "",
-    image: undefined,
-};
+import { ShortText } from "../../data/shortText";
+import AppContainer from "../General/AppContainer";
+import AppHeader from "../General/AppHeader";
+import TextBox, { FormattedText } from "../General/TextBox";
+import "./ShortText.scss";
 
 export interface ShortTextProps {
     shortTexts: ShortText[];
 }
-
-const sx = {
-    content: {
-        display: "flex",
-        justifyContent: "space-evenly",
-        gap: "1em",
-        p: 3,
-        width: "100%",
-        maxWidth: "400px",
-        alignSelf: "center",
-        border: "1px solid rgba(54, 57, 69, 0.14)",
-        borderRadius: "4px",
-        background: `url(${BloodDeepRed})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "contain",
-        backgroundPositionX: "lert",
-    },
-};
 
 const ShortTextComponent = (props: ShortTextProps) => {
     const params = useParams();
@@ -63,7 +17,7 @@ const ShortTextComponent = (props: ShortTextProps) => {
     );
 
     return (
-        <AppContainer className="ShortTextContainer">
+        <AppContainer className="ShortTextComponent">
             {currentText && (
                 <>
                     <AppHeader header={currentText.header} isSubheader />
@@ -72,12 +26,12 @@ const ShortTextComponent = (props: ShortTextProps) => {
                             <FormattedText
                                 description={currentText.description}
                             />
-                            <div className="ShortTextContainer-date">
+                            <div className="ShortTextComponent-date">
                                 {currentText.date}
                             </div>
-                            <Box sx={sx.content}>
+                            <Box className="ShortTextComponent-content">
                                 <img
-                                    className="ShortTextContainer-image"
+                                    className="ShortTextComponent-image"
                                     src={currentText.image?.fields?.file.url}
                                     alt="icon"
                                 />

@@ -4,10 +4,10 @@ import KukuKone from "../../assets/kuku_kone.jpeg";
 import { ReactComponent as AboutIcon } from "../../assets/noun-about.svg";
 import Sky from "../../assets/sky.png";
 import { AboutEntity } from "../../data/about";
-import AppContainer from "../AppContainer";
-import AppHeader from "../AppHeader";
-import SpacerComponent from "../SpacerComponent";
-import { FormattedText } from "../TextBox";
+import AppContainer from "../General/AppContainer";
+import AppHeader from "../General/AppHeader";
+import SpacerComponent from "../General/SpacerComponent";
+import { FormattedText } from "../General/TextBox";
 import "./About.scss";
 
 interface AboutProps {

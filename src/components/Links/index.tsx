@@ -1,21 +1,10 @@
 import { orderBy } from "lodash";
-import AppContainer from "./AppContainer";
-import AppHeader from "./AppHeader";
-import SpacerComponent from "./SpacerComponent";
-import SpiderWeb from "../assets/spider-web.png";
-import "./Links.css";
-
-export interface Link {
-    link: string;
-    description: string;
-    orderId: number;
-}
-
-export const initialLinksState: Link = {
-    link: "",
-    description: "",
-    orderId: -1,
-};
+import SpiderWeb from "../../assets/spider-web.png";
+import { Link } from "../../data/link";
+import AppContainer from "../General/AppContainer";
+import AppHeader from "../General/AppHeader";
+import SpacerComponent from "../General/SpacerComponent";
+import "./Links.scss";
 
 const Links = ({ links }: { links: Link[] }) => {
     return (
@@ -24,21 +13,24 @@ const Links = ({ links }: { links: Link[] }) => {
             <SpacerComponent />
             <div className="Links-container">
                 <img
-                    className="image"
+                    className="Links-container-image"
                     src={SpiderWeb}
                     alt={"spiderweb"}
                     loading="lazy"
                 />
-                <div className="Links-list">
+                <div className="Links-container-list">
                     {orderBy(links, "orderId").map((link) => (
                         <div
-                            className="Links-link-container"
+                            className="Links-container-list-link"
                             key={link.orderId}
                         >
-                            <a className="Links-link" href={link.link}>
+                            <a
+                                className="Links-container-list-link-url"
+                                href={link.link}
+                            >
                                 {link.link}
                             </a>
-                            <div className="Links-description">
+                            <div className="Links-container-list-link-description">
                                 {link.description}
                             </div>
                         </div>
