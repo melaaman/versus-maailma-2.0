@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 import AppContainer from "./AppContainer";
 import AppHeader from "./AppHeader";
 import { Entry } from "./JournalEntry";
-import { getFormattedText } from "./TextBox";
+import { FormattedText } from "./TextBox";
 import Philosophy from "../assets/filosofia.jpg";
 import { StylesDictionary } from "../styles";
 import "./Journal.css";
@@ -128,7 +128,9 @@ const Journal = (props: JournalProps) => {
                                 sx={sx.entryContent}
                             >
                                 <div className="Journal-entry-description">
-                                    {getFormattedText(latestEntry.description)}
+                                    <FormattedText
+                                        description={latestEntry.description}
+                                    />
                                 </div>
                                 <div className="fade" />
                             </Button>

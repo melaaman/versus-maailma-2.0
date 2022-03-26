@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { useParams } from "react-router-dom";
 import AppContainer from "./AppContainer";
 import AppHeader from "./AppHeader";
-import TextBox, { getFormattedText } from "./TextBox";
+import TextBox, { FormattedText } from "./TextBox";
 import BloodDeepRed from "../assets/blood_deep_red.png";
 import "./ShortText.css";
 
@@ -69,7 +69,9 @@ const ShortTextComponent = (props: ShortTextProps) => {
                     <AppHeader header={currentText.header} isSubheader />
                     <TextBox>
                         <>
-                            {getFormattedText(currentText.description)}
+                            <FormattedText
+                                description={currentText.description}
+                            />
                             <div className="ShortTextContainer-date">
                                 {currentText.date}
                             </div>

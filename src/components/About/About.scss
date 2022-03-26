@@ -1,0 +1,33 @@
+$pink: #f5426f;
+
+.About {
+    &-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+        &-description {
+            max-width: 25em;
+        }
+    }
+}
+
+.ImageList {
+    &-icon {
+        background-color: $pink;
+        height: 70%;
+        width: 75%;
+        padding: 1em;
+        padding-right: 1.2em;
+        margin-left: 1em;
+    }
+}
+
+.MuiImageList {
+    &-root {
+        width: 500px;
+        height: 450px;
+        padding: 1em !important;
+        border: 1px solid $pink;
+    }
+}

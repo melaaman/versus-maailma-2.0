@@ -18,19 +18,24 @@ import ShortTextComponent, {
     initialShortTextState,
 } from "./components/ShortText";
 import ShortTexts from "./components/ShortTexts";
-
+import { initialAboutState } from "./data/about";
 import "./App.css";
 
 export const primary = "#363945";
 export const secondary = "#D2386C";
 
 const App = () => {
+    const [about, setAbout] = useState(initialAboutState);
     const [essays, setEssays] = useState([initialEssayState]);
     const [shortTexts, setShortTexts] = useState([initialShortTextState]);
     const [journalEntries, setJournalEntries] = useState([initialEntryState]);
     const [links, setLinks] = useState([initialLinksState]);
 
     useEffect(() => {
+        getContent("about").then((entries) => {
+            setAbout(getItems(entries)[0]);
+        });
+
         getContent("essay").then((entries) => {
             setEssays(getItems(entries));
         });
@@ -139,7 +144,10 @@ const App = () => {
                     <NavBar />
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<About />} />
+                        <Route
+                            path="/about"
+                            element={<About about={about} />}
+                        />
                         <Route
                             path="/links"
                             element={<Links links={links} />}

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import AppContainer from "./AppContainer";
 import AppHeader from "./AppHeader";
-import TextBox, { getFormattedText } from "./TextBox";
+import TextBox, { FormattedText } from "./TextBox";
 
 export interface Essay {
     header: string;
@@ -33,9 +33,13 @@ const EssayComponent = (props: EssayComponentProps) => {
                     <AppHeader header={currentEssay.header} isSubheader />
                     <TextBox>
                         <>
-                            {getFormattedText(currentEssay.description)}
+                            <FormattedText
+                                description={currentEssay.description}
+                            />
                             <div>{currentEssay.date}</div>
-                            {getFormattedText(currentEssay.bibliography)}
+                            <FormattedText
+                                description={currentEssay.bibliography}
+                            />
                         </>
                     </TextBox>
                 </>

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import AppContainer from "./AppContainer";
 import AppHeader from "./AppHeader";
-import { getFormattedText } from "./TextBox";
+import { FormattedText } from "./TextBox";
 import "./JournalEntry.css";
 
 export interface Entry {
@@ -32,7 +32,9 @@ const JournalEntry = (props: JournalProps) => {
                     <AppHeader header={currentEntry.date} isSubheader />
                     <div className="JournalEntryComponent-content">
                         <span className="JournalEntryComponent-description">
-                            {getFormattedText(currentEntry.description)}
+                            <FormattedText
+                                description={currentEntry.description}
+                            />
                         </span>
                         {currentEntry.image && (
                             <img
