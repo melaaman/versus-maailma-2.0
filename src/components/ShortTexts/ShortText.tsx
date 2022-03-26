@@ -16,43 +16,47 @@ const ShortTextComponent = (props: ShortTextProps) => {
         (text) => text.id.toString() === params.id
     );
 
+    if (!currentText) {
+        return <div>Tekstiä ei löytynyt</div>;
+    }
+
+    const {
+        header,
+        description,
+        date,
+        image,
+        author,
+        work,
+        translator,
+        publisher,
+        yearOfPublishing,
+    } = currentText;
+
     return (
         <AppContainer className="ShortTextComponent">
-            {currentText && (
-                <>
-                    <AppHeader header={currentText.header} isSubheader />
-                    <TextBox>
-                        <>
-                            <FormattedText
-                                description={currentText.description}
-                            />
-                            <div className="ShortTextComponent-date">
-                                {currentText.date}
-                            </div>
-                            <Box className="ShortTextComponent-content">
-                                <img
-                                    className="ShortTextComponent-image"
-                                    src={currentText.image?.fields?.file.url}
-                                    alt="icon"
-                                />
-                                <div>
-                                    {`${currentText.author}: ${currentText.work}`}
-                                    <br />
-                                    {currentText.translator && (
-                                        <>
-                                            {`${currentText.translator} (suom.)`}
-                                            <br />
-                                        </>
-                                    )}
-                                    {`${currentText.publisher || ""} (${
-                                        currentText.yearOfPublishing
-                                    })`}
-                                </div>
-                            </Box>
-                        </>
-                    </TextBox>
-                </>
-            )}
+            <AppHeader header={header} isSubheader />
+            <TextBox>
+                <FormattedText description={description} />
+                <div className="ShortTextComponent-date">{date}</div>
+                <Box className="ShortTextComponent-content">
+                    <img
+                        className="ShortTextComponent-image"
+                        src={image?.fields?.file.url}
+                        alt="icon"
+                    />
+                    <div>
+                        {`${author}: ${work}`}
+                        <br />
+                        {translator && (
+                            <>
+                                {`${translator} (suom.)`}
+                                <br />
+                            </>
+                        )}
+                        {`${publisher || ""} (${yearOfPublishing})`}
+                    </div>
+                </Box>
+            </TextBox>
         </AppContainer>
     );
 };

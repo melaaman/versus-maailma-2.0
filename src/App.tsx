@@ -28,28 +28,29 @@ import { rootStyle } from "./styles/rootStyle";
 const App = () => {
     const [about, setAbout] = useState(initialAboutState);
     const [essays, setEssays] = useState([initialEssayState]);
-    const [shortTexts, setShortTexts] = useState([initialShortTextState]);
     const [journalEntries, setJournalEntries] = useState([initialEntryState]);
+    const [shortTexts, setShortTexts] = useState([initialShortTextState]);
     const [links, setLinks] = useState([initialLinksState]);
 
     useEffect(() => {
-        getContent("about").then((entries) => {
-            setAbout(getItems(entries)[0]);
+        getContent("about").then((data) => {
+            setAbout(getItems(data)[0]);
         });
 
-        getContent("essay").then((entries) => {
-            setEssays(getItems(entries));
+        getContent("essay").then((data) => {
+            setEssays(getItems(data));
         });
 
-        getContent("shortText").then((entries) => {
-            setShortTexts(getItems(entries));
+        getContent("journal").then((data) => {
+            setJournalEntries(getItems(data));
         });
 
-        getContent("journal").then((entries) => {
-            setJournalEntries(getItems(entries));
+        getContent("shortText").then((data) => {
+            setShortTexts(getItems(data));
         });
-        getContent("link").then((entries) => {
-            setLinks(getItems(entries));
+
+        getContent("link").then((data) => {
+            setLinks(getItems(data));
         });
     }, []);
 
