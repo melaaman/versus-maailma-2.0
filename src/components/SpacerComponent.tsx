@@ -1,5 +1,4 @@
 import { useMediaQuery } from "@mui/material";
-import React from "react";
 
 const SpacerComponent = () => {
     const matches = useMediaQuery("(max-width:480px)");

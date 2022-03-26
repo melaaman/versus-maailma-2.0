@@ -1,5 +1,5 @@
 import { ImageList, ImageListItem } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import AppContainer from "./AppContainer";
 import AppHeader from "./AppHeader";
 import SpacerComponent from "./SpacerComponent";

@@ -1,4 +1,3 @@
-import React from "react";
 import { orderBy } from "lodash";
 import AppContainer from "./AppContainer";
 import AppHeader from "./AppHeader";

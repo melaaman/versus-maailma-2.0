@@ -1,4 +1,3 @@
-import React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";

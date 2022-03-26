@@ -12,7 +12,6 @@ import {
 } from "@mui/material";
 import fiLocale from "date-fns/locale/fi";
 import moment from "moment";
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import AppContainer from "./AppContainer";
 import AppHeader from "./AppHeader";

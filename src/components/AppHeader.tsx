@@ -1,5 +1,4 @@
 import { Typography, Divider } from "@mui/material";
-import React from "react";
 import { CSSProperties } from "react";
 
 interface AppHeaderProps {
