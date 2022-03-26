@@ -1,9 +1,9 @@
+import React from "react";
 import { orderBy } from "lodash";
 import AppContainer from "./AppContainer";
 import AppHeader from "./AppHeader";
 import SpacerComponent from "./SpacerComponent";
 import SpiderWeb from "../assets/spider-web.png";
-import { StylesDictionary } from "../styles";
 import "./Links.css";
 
 export interface Link {

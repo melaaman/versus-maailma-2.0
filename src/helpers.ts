@@ -1,5 +1,5 @@
-import { marked } from "marked";
 import DOMPurify from "dompurify";
+import { marked } from "marked";
 
 export const getParsedMarkdown = (text: string): { __html: string } => {
     const clean = DOMPurify.sanitize(text);

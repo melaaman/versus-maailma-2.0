@@ -1,5 +1,3 @@
-import { useState, Fragment } from "react";
-import { useNavigate } from "react-router-dom";
 import {
     Box,
     TextField,
@@ -14,12 +12,15 @@ import {
     Button,
 } from "@mui/material";
 import { orderBy, isEmpty } from "lodash";
+import React from "react";
+import { useState, Fragment } from "react";
+import { useNavigate } from "react-router-dom";
 import AppContainer from "./AppContainer";
-import SpacerComponent from "./SpacerComponent";
 import AppHeader from "./AppHeader";
+import { ShortTextProps } from "./ShortText";
+import SpacerComponent from "./SpacerComponent";
 import Blood from "../assets/blood.png";
 import { StylesDictionary } from "../styles";
-import { ShortTextProps } from "./ShortText";
 import "./ShortTexts.css";
 
 const sx: StylesDictionary = {

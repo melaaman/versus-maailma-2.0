@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";
 import {
     AppBar,
     Container,
@@ -11,7 +10,9 @@ import {
     MenuItem,
     Button,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const pages = [
     {

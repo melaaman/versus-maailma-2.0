@@ -1,4 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import PickersDay, { PickersDayProps } from "@mui/lab/PickersDay";
+import StaticDatePicker from "@mui/lab/StaticDatePicker";
 import {
     Grid,
     Box,
@@ -7,17 +10,15 @@ import {
     TextField,
     useMediaQuery,
 } from "@mui/material";
-import moment from "moment";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import StaticDatePicker from "@mui/lab/StaticDatePicker";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import PickersDay, { PickersDayProps } from "@mui/lab/PickersDay";
 import fiLocale from "date-fns/locale/fi";
-import { Entry } from "./JournalEntry";
+import moment from "moment";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import AppContainer from "./AppContainer";
 import AppHeader from "./AppHeader";
-import Philosophy from "../assets/filosofia.jpg";
+import { Entry } from "./JournalEntry";
 import { getFormattedText } from "./TextBox";
+import Philosophy from "../assets/filosofia.jpg";
 import { StylesDictionary } from "../styles";
 import "./Journal.css";
 

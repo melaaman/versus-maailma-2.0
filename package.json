@@ -29,6 +29,7 @@
         "react-markdown": "^8.0.0",
         "react-router-dom": "^6.2.1",
         "react-scripts": "5.0.0",
+        "sass": "^1.49.9",
         "typescript": "^4.5.4",
         "web-vitals": "^2.1.2"
     },
@@ -36,13 +37,9 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
+        "eject": "react-scripts eject",
+        "lint": "eslint -c .eslintrc.js --ext .js,.jsx,.ts,.tsx .",
+        "lint:fix": "npm run lint --fix"
     },
     "browserslist": {
         "production": [
@@ -57,6 +54,8 @@
         ]
     },
     "devDependencies": {
+        "@babel/core": "^7.17.8",
+        "@babel/eslint-parser": "^7.17.0",
         "@types/dompurify": "^2.3.2",
         "@types/lodash": "^4.14.178",
         "prettier": "2.5.1"

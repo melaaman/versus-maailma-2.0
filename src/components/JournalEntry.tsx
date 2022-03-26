@@ -1,5 +1,5 @@
+import React from "react";
 import { useParams } from "react-router-dom";
-import { StylesDictionary } from "../styles";
 import AppContainer from "./AppContainer";
 import AppHeader from "./AppHeader";
 import { getFormattedText } from "./TextBox";

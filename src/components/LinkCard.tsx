@@ -6,6 +6,7 @@ import {
     Typography,
     useMediaQuery,
 } from "@mui/material";
+import React from "react";
 
 interface LinkCardProps {
     image: string;
@@ -22,8 +23,8 @@ const LinkCard = (props: LinkCardProps) => {
                     width: mobileBreakPoint
                         ? 300
                         : tabletBreakPoint
-                        ? 400
-                        : 500,
+                            ? 400
+                            : 500,
                     height: 360,
                     backgroundColor: "white",
                     color: "black",

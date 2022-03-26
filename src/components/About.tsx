@@ -1,30 +1,21 @@
-import { useState, useEffect } from "react";
 import { ImageList, ImageListItem } from "@mui/material";
-import { getContent } from "../Client";
+import React, { useState, useEffect } from "react";
 import AppContainer from "./AppContainer";
-import SpacerComponent from "./SpacerComponent";
 import AppHeader from "./AppHeader";
+import SpacerComponent from "./SpacerComponent";
+import { getFormattedText } from "./TextBox";
 import FeministBooks from "../assets/feminist_books.jpg";
 import KukuKone from "../assets/kuku_kone.jpeg";
-import Sky from "../assets/sky.png";
 import { ReactComponent as AboutIcon } from "../assets/noun-about.svg";
-import { StylesDictionary } from "../styles";
-import "./About.css";
-import { getFormattedText } from "./TextBox";
+import Sky from "../assets/sky.png";
+import { getContent } from "../Client";
+
+import "./About.scss";
 
 interface About {
     header: string;
     description: string;
 }
-
-const sx: StylesDictionary = {
-    imageList: {
-        width: 500,
-        height: 450,
-        padding: "1em",
-        border: "1px solid #f5426f",
-    },
-};
 
 const AboutComponent = () => {
     const initialState: About = { header: "", description: "" };
@@ -42,16 +33,10 @@ const AboutComponent = () => {
             <AppHeader header={aboutPage.header} />
             <SpacerComponent />
             <div className="About-container">
-                <div className="About-description">
+                <div className="About-container-description">
                     {getFormattedText(aboutPage.description)}
                 </div>
-                <ImageList
-                    variant="woven"
-                    sx={sx.imageList}
-                    cols={2}
-                    gap={8}
-                    rowHeight={164}
-                >
+                <ImageList variant="woven" cols={2} gap={8} rowHeight={164}>
                     <ImageListItem>
                         <img
                             src={FeministBooks}
@@ -60,7 +45,7 @@ const AboutComponent = () => {
                         />
                     </ImageListItem>
                     <ImageListItem>
-                        <AboutIcon className="About-icon" />
+                        <AboutIcon className="About-container-icon" />
                     </ImageListItem>
                     <ImageListItem>
                         <img src={Sky} alt="sky" loading="lazy" />

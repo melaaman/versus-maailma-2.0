@@ -1,13 +1,14 @@
 import { Grid } from "@mui/material";
+import React from "react";
 import { Link } from "react-router-dom";
 
-import LinkCard from "./LinkCard";
 import AppContainer from "./AppContainer";
-import Journal from "../assets/journal.png";
+import LinkCard from "./LinkCard";
 import About from "../assets/about.png";
-import Shortly from "../assets/shortly.png";
 import Essays from "../assets/essays.png";
+import Journal from "../assets/journal.png";
 import Links from "../assets/linkkeja.png";
+import Shortly from "../assets/shortly.png";
 
 const linkItems = [
     {

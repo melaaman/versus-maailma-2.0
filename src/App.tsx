@@ -1,30 +1,31 @@
+import React from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "@fontsource/open-sans";
 import "@fontsource/anonymous-pro";
 
+import { getContent, getItems } from "./Client";
 import About from "./components/About";
-import ShortTexts from "./components/ShortTexts";
-import Essays from "./components/Essays";
+import { initialEssayState } from "./components/Essay";
 import EssayComponent from "./components/Essay";
+import Essays from "./components/Essays";
+import Home from "./components/Home";
+import Journal from "./components/Journal";
+import JournalEntry, { initialEntryState } from "./components/JournalEntry";
+import Links, { initialLinksState } from "./components/Links";
+import NavBar from "./components/NavBar";
 import ShortTextComponent, {
     initialShortTextState,
 } from "./components/ShortText";
-import Journal from "./components/Journal";
-import JournalEntry, { initialEntryState } from "./components/JournalEntry";
-import { initialEssayState } from "./components/Essay";
-import { getContent, getItems } from "./Client";
-import Home from "./components/Home";
-import Links, { initialLinksState } from "./components/Links";
-import NavBar from "./components/NavBar";
+import ShortTexts from "./components/ShortTexts";
 
 import "./App.css";
 
 export const primary = "#363945";
 export const secondary = "#D2386C";
 
-function App() {
+const App = () => {
     const [essays, setEssays] = useState([initialEssayState]);
     const [shortTexts, setShortTexts] = useState([initialShortTextState]);
     const [journalEntries, setJournalEntries] = useState([initialEntryState]);
@@ -179,6 +180,6 @@ function App() {
             </ThemeProvider>
         </div>
     );
-}
+};
 
 export default App;

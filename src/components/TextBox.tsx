@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import React from "react";
 import ReactMarkdown from "react-markdown";
 
 export const getFormattedText = (description: string) => (
