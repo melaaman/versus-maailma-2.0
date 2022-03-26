@@ -1,5 +1,7 @@
 import { createClient } from "contentful";
+import { AboutEntity } from "./data/about";
 import { Essay } from "./data/essay";
+import { Link } from "./data/link";
 import { ShortText } from "./data/shortText";
 
 const client = createClient({
@@ -14,9 +16,11 @@ export const getContent = (contentType: string) =>
 
 export const getItems = (entries: any) => {
     const newItems: any = [];
-    entries.items.forEach((item: { fields: Essay | ShortText }) => {
-        newItems.push({ ...item.fields });
-    });
+    entries.items.forEach(
+        (item: { fields: Essay | ShortText | AboutEntity | Link }) => {
+            newItems.push({ ...item.fields });
+        }
+    );
     return newItems;
 };
 

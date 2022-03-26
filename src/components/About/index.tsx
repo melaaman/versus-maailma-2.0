@@ -59,11 +59,14 @@ const AppImageList = () => {
             gap={8}
             rowHeight={164}
         >
-            {imageItems.map((imageItem) => (
-                <ImageListItem key={imageItem.alt}>
-                    <img src={imageItem.src} alt={imageItem.alt} />
-                </ImageListItem>
-            ))}
+            {imageItems.map((imageItem) => {
+                const { src, alt } = imageItem;
+                return (
+                    <ImageListItem key={alt}>
+                        <img src={src} alt={alt} />
+                    </ImageListItem>
+                );
+            })}
             <AboutIcon className="ImageList-icon" />
         </ImageList>
     );

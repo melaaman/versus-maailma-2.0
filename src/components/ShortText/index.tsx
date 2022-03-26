@@ -15,11 +15,31 @@ import { orderBy, isEmpty } from "lodash";
 import React from "react";
 import { useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
+import { ShortTextProps } from "./ShortText";
 import AppContainer from "../General/AppContainer";
 import AppHeader from "../General/AppHeader";
 import SpacerComponent from "../General/SpacerComponent";
-import { ShortTextProps } from "../ShortText/ShortText";
 import "./ShortTexts.scss";
+
+type GenreItem = {
+    value: string;
+    name: string;
+};
+
+const genreItems: GenreItem[] = [
+    {
+        value: "book",
+        name: "Kirjat",
+    },
+    {
+        value: "movie",
+        name: "Elokuvat",
+    },
+    {
+        value: "tv",
+        name: "Sarjat",
+    },
+];
 
 const ShortTexts = (props: ShortTextProps) => {
     const [genre, setGenre] = useState("");
@@ -39,6 +59,10 @@ const ShortTexts = (props: ShortTextProps) => {
             (!genre || text.genre === genre) &&
             (text.author.toLowerCase().includes(value) ||
                 text.work.toLowerCase().includes(value))
+    );
+
+    const renderMenuItem = (item: GenreItem) => (
+        <MenuItem value={item.value}>{item.name}</MenuItem>
     );
     return (
         <AppContainer className="ShortTexts">
@@ -63,9 +87,7 @@ const ShortTexts = (props: ShortTextProps) => {
                         <MenuItem value="">
                             <em>Genre</em>
                         </MenuItem>
-                        <MenuItem value={"book"}>Kirjat</MenuItem>
-                        <MenuItem value={"movie"}>Elokuvat</MenuItem>
-                        <MenuItem value={"tv"}>Sarjat</MenuItem>
+                        {genreItems.map(renderMenuItem)}
                     </Select>
                 </FormControl>
             </div>
