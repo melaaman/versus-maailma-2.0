@@ -27,7 +27,6 @@ module.exports = {
     ],
     root: true, // For configuration cascading.
     rules: {
-        indent: ["error", 4],
         quotes: ["warn", "double"],
         "import/order": [
             "warn",
