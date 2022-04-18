@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import About from "../../assets/about.png";
+import Bagend from "../../assets/bagend_logo.png";
 import Essays from "../../assets/essays.png";
 import Journal from "../../assets/journal.png";
 import Links from "../../assets/linkkeja.png";
@@ -38,6 +39,11 @@ const linkItems = [
         id: "links",
         image: Links,
         content: "Nettisivuja, joilla vierailen usein.",
+    },
+    {
+        id: "bagend",
+        image: Bagend,
+        content: "Repunpää rakenteilla",
     },
 ];
 

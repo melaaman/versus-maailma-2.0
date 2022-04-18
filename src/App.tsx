@@ -6,6 +6,7 @@ import "@fontsource/anonymous-pro";
 
 import { getContent, getItems } from "./Client";
 import About from "./components/About";
+import Bagend from "./components/Bagend";
 import Essays from "./components/Essays";
 import EssayComponent from "./components/Essays/Essay";
 import NavBar from "./components/General/NavBar";
@@ -99,6 +100,7 @@ const App = () => {
                                 <JournalEntry journalEntries={journalEntries} />
                             }
                         />
+                        <Route path="/bagend" element={<Bagend />} />
                     </Routes>
                 </Router>
             </ThemeProvider>

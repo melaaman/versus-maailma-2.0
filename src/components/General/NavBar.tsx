@@ -41,6 +41,11 @@ const pages = [
         header: "Linkkejä",
         color: "#FFFFC9",
     },
+    {
+        id: "bagend",
+        header: "Projekti Repunpää",
+        color: "#590D82",
+    },
 ];
 
 const title = "VERSUS_MAAILMA_2.0";

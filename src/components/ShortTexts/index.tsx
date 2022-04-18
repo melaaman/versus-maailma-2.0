@@ -62,7 +62,9 @@ const ShortTexts = (props: ShortTextProps) => {
     );
 
     const renderMenuItem = (item: GenreItem) => (
-        <MenuItem value={item.value}>{item.name}</MenuItem>
+        <MenuItem key={item.value} value={item.value}>
+            {item.name}
+        </MenuItem>
     );
     return (
         <AppContainer className="ShortTexts">
