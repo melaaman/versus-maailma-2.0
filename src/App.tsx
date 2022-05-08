@@ -1,10 +1,8 @@
 import { ThemeProvider } from "@mui/material/styles";
-import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "@fontsource/open-sans";
 import "@fontsource/anonymous-pro";
 
-import { getContent, getItems } from "./Client";
 import About from "./components/About";
 import Bagend from "./components/Bagend";
 import Essays from "./components/Essays";
@@ -16,44 +14,29 @@ import JournalEntry from "./components/Journal/JournalEntry";
 import Links from "./components/Links";
 import ShortTexts from "./components/ShortTexts";
 import ShortTextComponent from "./components/ShortTexts/ShortText";
-import { initialAboutState } from "./data/about";
-import { initialEssayState } from "./data/essay";
-import { initialEntryState } from "./data/journal";
-import { initialLinksState } from "./data/link";
-import { initialShortTextState } from "./data/shortText";
+import { AboutEntity, initialAboutState } from "./data/about";
+import { Essay, initialEssayState } from "./data/essay";
+import { Entry, initialEntryState } from "./data/journal";
+import { initialLinksState, Link } from "./data/link";
+import { initialShortTextState, ShortText } from "./data/shortText";
 export { rootStyle } from "./styles/rootStyle";
 
 import "./App.css";
+import useFetch from "./hooks/useFetch";
 import { rootStyle } from "./styles/rootStyle";
 
 const App = () => {
-    const [about, setAbout] = useState(initialAboutState);
-    const [essays, setEssays] = useState([initialEssayState]);
-    const [journalEntries, setJournalEntries] = useState([initialEntryState]);
-    const [shortTexts, setShortTexts] = useState([initialShortTextState]);
-    const [links, setLinks] = useState([initialLinksState]);
-
-    useEffect(() => {
-        getContent("about").then((data) => {
-            setAbout(getItems(data)[0]);
-        });
-
-        getContent("essay").then((data) => {
-            setEssays(getItems(data));
-        });
-
-        getContent("journal").then((data) => {
-            setJournalEntries(getItems(data));
-        });
-
-        getContent("shortText").then((data) => {
-            setShortTexts(getItems(data));
-        });
-
-        getContent("link").then((data) => {
-            setLinks(getItems(data));
-        });
-    }, []);
+    const { data: about } = useFetch<AboutEntity>("about", initialAboutState);
+    const { data: essays } = useFetch<Essay>("essay", initialEssayState);
+    const { data: journalEntries } = useFetch<Entry>(
+        "journal",
+        initialEntryState
+    );
+    const { data: shortTexts } = useFetch<ShortText>(
+        "shortText",
+        initialShortTextState
+    );
+    const { data: links } = useFetch<Link>("link", initialLinksState);
 
     return (
         <div className="AppComponent">
@@ -64,7 +47,7 @@ const App = () => {
                         <Route path="/" element={<Home />} />
                         <Route
                             path="/about"
-                            element={<About about={about} />}
+                            element={<About about={about[0]} />}
                         />
                         <Route
                             path="/links"
