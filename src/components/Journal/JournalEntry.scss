@@ -3,6 +3,7 @@
         display: flex;
         padding: 4%;
         justify-content: space-between;
+        gap: 2em;
 
         &-description {
             display: flex;
@@ -17,5 +18,13 @@
             margin-top: 1em;
             max-width: 250px;
         }
+    }
+}
+
+/* For mobile phones: */
+@media only screen and (max-width: 480px) {
+    .JournalEntryComponent-content {
+        flex-direction: column-reverse;
+        align-items: center;
     }
 }
