@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import { orderBy } from "lodash";
 import BagendImg from "../../assets/bagend.jpg";
 import { BagendEntity } from "../../data/bagend";
@@ -32,6 +32,7 @@ const BagendComponent = (props: BagendProps) => {
                     alt="Bagend_New_Zealand"
                 />
             </div>
+            <Divider />
             <Box>
                 <div className="Bagend-images">
                     {orderBy(props.bagendItems, "order", "asc").map((item) => (
