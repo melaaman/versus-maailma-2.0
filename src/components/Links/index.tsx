@@ -29,10 +29,10 @@ const Links = ({ links }: { links: Link[] }) => {
                                 href={link.link}
                             >
                                 {link.link}
+                                <div className="Links-container-list-link-description">
+                                    {link.description}
+                                </div>
                             </a>
-                            <div className="Links-container-list-link-description">
-                                {link.description}
-                            </div>
                         </div>
                     ))}
                 </div>
