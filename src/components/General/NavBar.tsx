@@ -37,14 +37,14 @@ const pages = [
         color: "hotpink",
     },
     {
+        id: "bagend",
+        header: "Repunpää",
+        color: "#590D82",
+    },
+    {
         id: "links",
         header: "Linkkejä",
         color: "#FFFFC9",
-    },
-    {
-        id: "bagend",
-        header: "Projekti Repunpää",
-        color: "#590D82",
     },
 ];
 

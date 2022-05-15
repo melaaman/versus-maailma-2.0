@@ -36,14 +36,14 @@ const linkItems = [
             "Jäsennellympiä ja työstetympiä ajatuksia. En lupaa olla esseideni kanssa samaa mieltä.",
     },
     {
-        id: "links",
-        image: Links,
-        content: "Nettisivuja, joilla vierailen usein.",
-    },
-    {
         id: "bagend",
         image: Bagend,
         content: "Repunpää rakenteilla",
+    },
+    {
+        id: "links",
+        image: Links,
+        content: "Nettisivuja, joilla vierailen usein.",
     },
 ];
 

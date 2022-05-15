@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getContent, getItems } from "../Client";
 
-type Entity = "about" | "essay" | "journal" | "link" | "shortText";
+type Entity = "about" | "essay" | "journal" | "link" | "shortText" | "bagend";
 
 interface ReturnedEntity<TResponse> {
     data: TResponse;

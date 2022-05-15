@@ -53,7 +53,7 @@ const AppImageList = () => {
 
     return (
         <ImageList
-            className="ImageList"
+            className={"ImageList"}
             variant="woven"
             cols={2}
             gap={8}

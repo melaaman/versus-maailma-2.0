@@ -13,6 +13,9 @@ $pink: #f5426f;
 }
 
 .ImageList {
+    width: 500px;
+    height: 450px;
+
     &-icon {
         background-color: $pink;
         height: 70%;
@@ -25,8 +28,6 @@ $pink: #f5426f;
 
 .MuiImageList {
     &-root {
-        width: 500px;
-        height: 450px;
         padding: 1em !important;
         border: 1px solid $pink;
     }

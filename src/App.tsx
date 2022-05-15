@@ -15,6 +15,7 @@ import Links from "./components/Links";
 import ShortTexts from "./components/ShortTexts";
 import ShortTextComponent from "./components/ShortTexts/ShortText";
 import { AboutEntity, initialAboutState } from "./data/about";
+import { BagendEntity, initialBagendState } from "./data/bagend";
 import { Essay, initialEssayState } from "./data/essay";
 import { Entry, initialEntryState } from "./data/journal";
 import { initialLinksState, Link } from "./data/link";
@@ -37,6 +38,10 @@ const App = () => {
         initialShortTextState
     );
     const { data: links } = useFetch<Link>("link", initialLinksState);
+    const { data: bagend } = useFetch<BagendEntity>(
+        "bagend",
+        initialBagendState
+    );
 
     return (
         <div className="AppComponent">
@@ -83,7 +88,10 @@ const App = () => {
                                 <JournalEntry journalEntries={journalEntries} />
                             }
                         />
-                        <Route path="/bagend" element={<Bagend />} />
+                        <Route
+                            path="/bagend"
+                            element={<Bagend bagendItems={bagend} />}
+                        />
                     </Routes>
                 </Router>
             </ThemeProvider>
