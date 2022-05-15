@@ -1,0 +1,50 @@
+.Bagend {
+    &-description {
+        display: flex;
+        align-items: center;
+        margin: 2rem 0;
+
+        &-image {
+            width: 30%;
+            height: 100%;
+            padding: 2rem;
+        }
+    }
+
+    &-images {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        &-imageWrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            &-image {
+                width: 70%;
+                height: 70%;
+            }
+        }
+    }
+}
+
+.MuiImageListItem {
+    &-root {
+        display: flex;
+        align-items: center;
+        line-height: 1.2 !important;
+    }
+}
+
+/* For mobile phones: */
+@media only screen and (max-width: 480px) {
+    .Bagend-description {
+        flex-direction: column-reverse;
+    }
+    .Bagend-description-image {
+        width: 80%;
+    }
+    .Bagend-images {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+}
