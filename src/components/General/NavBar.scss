@@ -1,44 +1,80 @@
+$primary: #363945;
 $headerFont: monospace;
 
 @mixin title {
-    color: aliceblue;
-    text-shadow: 1px 1px 1px whitesmoke;
+    flex-grow: 1;
+    z-index: 99999;
+    justify-content: center;
     cursor: pointer;
     font-weight: 900 !important;
     letter-spacing: 2px;
     font-family: $headerFont !important;
+    white-space: normal !important;
+    text-align: center;
+    line-height: 1 !important;
+    flex-direction: column;
+    @include header_and_menu;
+}
+@mixin header_and_menu {
+    color: $primary;
+    font-size: 40px !important;
+}
+
+@mixin dot {
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: -1;
 }
 
 .NavBar {
+    box-shadow: none !important;
+    background-color: whitesmoke !important;
     &-container {
-        &-largeScreen {
-            &-title {
-                @include title;
-            }
-
-            &-menu {
-                flex-grow: 1;
-                justify-content: end;
-
-                &-pages {
-                    margin: 2px 0 !important;
-                    color: aliceblue !important;
-                    font-size: 16px !important;
-                    font-weight: 900 !important;
-                    display: block !important;
-                    font-family: $headerFont !important;
-                }
-            }
-        }
-
+        padding: 40px 0;
         &-smallScreen {
             &-title {
                 @include title;
+
+                &-dot-pink {
+                    @include dot;
+                    right: 20%;
+                    width: 80px;
+                    height: 80px;
+                    top: 10%;
+                    background: pink;
+                }
+                &-dot-yellow {
+                    @include dot;
+                    left: 20%;
+                    bottom: 30%;
+                    background: yellow;
+                }
+                &-dot-purple {
+                    @include dot;
+                    left: 30%;
+                    bottom: 10%;
+                    width: 60px;
+                    height: 60px;
+                    background: rgb(89, 13, 130, 0.8);
+                }
+                &-dot-green {
+                    @include dot;
+                    left: 35%;
+                    bottom: 10%;
+                    width: 85px;
+                    height: 85px;
+                    background: #98ffcc;
+                }
             }
 
             &-menu {
-                flex-grow: 1;
-
+                &-button {
+                    &-icon {
+                        @include header_and_menu;
+                    }
+                }
                 &-pages {
                     &-page {
                         text-align: center;

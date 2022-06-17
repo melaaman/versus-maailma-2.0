@@ -2,14 +2,7 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import PickersDay, { PickersDayProps } from "@mui/lab/PickersDay";
 import StaticDatePicker from "@mui/lab/StaticDatePicker";
-import {
-    Grid,
-    Box,
-    Paper,
-    Button,
-    TextField,
-    useMediaQuery,
-} from "@mui/material";
+import { Grid, Box, Paper, Button, TextField } from "@mui/material";
 import fiLocale from "date-fns/locale/fi";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
@@ -29,7 +22,6 @@ const getFormattedEntryDate = (date: Date | null) =>
 
 const Journal = (props: JournalProps) => {
     const navigate = useNavigate();
-    const matches = useMediaQuery("(max-width:480px)");
     const latestEntry = props.journalEntries[0];
     const isExistingEntry = (date: Date) =>
         props.journalEntries
@@ -54,11 +46,7 @@ const Journal = (props: JournalProps) => {
     return (
         <AppContainer className="Journal">
             <AppHeader header="(Luku)päiväkirja" />
-            <Grid
-                container
-                className="Journal-container"
-                style={{ marginTop: matches ? "2em" : "4em" }}
-            >
+            <Grid container className="Journal-container">
                 <Grid item xs={12} md={8}>
                     <Box
                         sx={{

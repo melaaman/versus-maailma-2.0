@@ -3,7 +3,7 @@ import { useMediaQuery } from "@mui/material";
 const SpacerComponent = () => {
     const matches = useMediaQuery("(max-width:480px)");
     return (
-        <div style={{ marginTop: matches ? "2em" : "4em", width: "100%" }} />
+        <div style={{ marginTop: matches ? "1rem" : "3rem", width: "100%" }} />
     );
 };
 

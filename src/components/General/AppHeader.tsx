@@ -1,5 +1,6 @@
 import { Typography, Divider } from "@mui/material";
 import { CSSProperties } from "react";
+import "./AppHeader.scss";
 
 interface AppHeaderProps {
     header: string;
@@ -10,6 +11,7 @@ interface AppHeaderProps {
 const AppHeader = (props: AppHeaderProps) => (
     <Typography
         variant="h4"
+        className="Appheader"
         sx={{
             ...props.style,
             fontSize: props.isSubheader ? "20px" : "30px",

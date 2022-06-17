@@ -8,7 +8,6 @@ import {
     IconButton,
     Menu,
     MenuItem,
-    Button,
 } from "@mui/material";
 import React from "react";
 import { useState } from "react";
@@ -48,7 +47,7 @@ const pages = [
     },
 ];
 
-const title = "VERSUS_MAAILMA_2.0";
+const title = "versus maailma 2.0";
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState<null | HTMLElement>(null);
@@ -65,61 +64,55 @@ const NavBar = () => {
         }
     }
 
-    const largeScreen = {
-        xs: "none",
-        md: "flex",
-    };
-
-    const smallScreen = { xs: "flex", md: "none" };
+    const smallScreen = { xs: "flex", md: "flex" };
 
     return (
-        <AppBar className="NavBar" position="sticky" color="primary">
+        <AppBar className="NavBar" position="sticky">
             <Container className="NavBar-container" maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
-                        className="NavBar-container-largeScreen-title"
-                        onClick={() => navigate("/")}
+                        className="NavBar-container-smallScreen-title"
                         variant="h5"
+                        onClick={() => navigate("/")}
                         noWrap
                         component="div"
-                        sx={{
-                            display: largeScreen,
-                        }}
-                    >
-                        {title}
-                    </Typography>
-                    <Box
-                        className="NavBar-container-smallScreen-menu"
                         sx={{
                             display: smallScreen,
                         }}
                     >
+                        <div className="NavBar-container-smallScreen-title-dot-pink" />
+                        <div className="NavBar-container-smallScreen-title-dot-yellow" />
+                        <div className="NavBar-container-smallScreen-title-dot-purple" />
+                        <div className="NavBar-container-smallScreen-title-dot-green" />
+                        {title}
+                    </Typography>
+                    <Box className="NavBar-container-smallScreen-menu">
                         <IconButton
-                            size="large"
+                            size="small"
                             aria-label="account of current user"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
                             color="inherit"
                         >
-                            <MenuIcon />
+                            <MenuIcon className="NavBar-container-smallScreen-menu-button-icon" />
                         </IconButton>
                         <Menu
                             id="menu-appbar"
                             anchorEl={isOpen}
                             anchorOrigin={{
                                 vertical: "bottom",
-                                horizontal: "left",
+                                horizontal: "right",
                             }}
                             keepMounted
                             transformOrigin={{
                                 vertical: "top",
-                                horizontal: "left",
+                                horizontal: "right",
                             }}
                             open={Boolean(isOpen)}
                             onClose={() => handleCloseNavMenu()}
                             sx={{
-                                display: { xs: "block", md: "none" },
+                                display: { xs: "block", md: "block" },
                             }}
                         >
                             {pages.map((page, index) => (
@@ -134,36 +127,6 @@ const NavBar = () => {
                                 </MenuItem>
                             ))}
                         </Menu>
-                    </Box>
-                    <Typography
-                        className="NavBar-container-smallScreen-title"
-                        variant="h5"
-                        onClick={() => navigate("/")}
-                        noWrap
-                        component="div"
-                        sx={{
-                            display: smallScreen,
-                        }}
-                    >
-                        {title}
-                    </Typography>
-                    <Box
-                        className="NavBar-container-largeScreen-menu"
-                        sx={{
-                            display: largeScreen,
-                        }}
-                    >
-                        {pages.map((page, index) => (
-                            <Button
-                                className="NavBar-container-largeScreen-menu-pages"
-                                key={index}
-                                size="large"
-                                onClick={() => handleCloseNavMenu(page.id)}
-                                sx={{}}
-                            >
-                                {page.header}
-                            </Button>
-                        ))}
                     </Box>
                 </Toolbar>
             </Container>
